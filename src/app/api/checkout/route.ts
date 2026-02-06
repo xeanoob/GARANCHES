@@ -8,6 +8,13 @@ export async function POST(req: Request) {
     // On essaie de trouver le produit dans notre "base de données" locale
     const localProduct = PRODUCTS.find(p => p.name === wineName || p.id === wineName);
 
+    // MODE SIMULATION : Si pas de clé SumConfiguration configurée
+    if (!process.env.SUMUP_ACCESS_TOKEN || process.env.SUMUP_ACCESS_TOKEN === 'ton_token_ici' || process.env.SUMUP_ACCESS_TOKEN === 'mock') {
+        console.log("Mode Mock activé");
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Latence artificielle
+        return NextResponse.json({ id: `mock-${Date.now()}` });
+    }
+
     if (localProduct) {
         console.log(`[Checkout Security] Validating price for ${wineName}. Client: ${amount}, Server: ${localProduct.price / 100}`);
         // On force le prix officiel si le produit est connu
