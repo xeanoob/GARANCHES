@@ -13,7 +13,7 @@ const wines = [
         name: "Brouilly",
         subtitle: "Cru du Beaujolais — Rouge",
         price: "12,00 €", // Prix indicatif (à modifier)
-        description: "La star du domaine. Un vin rouge profond aux arômes de fruits noirs et d'épices. Une structure tannique soyeuse qui permet une garde de 5 à 10 ans.",
+        description: "Les Brouilly présentent des notes de fleurs et de fruits : rose, violette, framboise, et cassis. Au-delà de ces parfums qui constituent le plaisir du Brouilly, chaque année révèle sa personnalité. Découvrez notre séléction de Brouilly à la vente.",
         image: "/images/36_brouilly-h.jpg",
         tags: ["Gamay", "Viandes rouges", "Fromages"]
     },
@@ -22,7 +22,7 @@ const wines = [
         name: "Bourgogne Blanc",
         subtitle: "Chardonnay",
         price: "10,50 €",
-        description: "Toute l'élégance du Chardonnay. Un nez floral (acacia) et une bouche minérale. Parfait pour l'apéritif ou pour accompagner des fruits de mer.",
+        description: "Le Chardonnay blanc développe de façon constante une palette aromatique fraiche et fruitée avec des arômes de poire, de pomme... découvrez notre sélection de Chardonnay à la vente.",
         image: "/images/37_bourgogne-blanc-h.jpg",
         tags: ["Chardonnay", "Poissons", "Apéritif"]
     },
@@ -31,7 +31,7 @@ const wines = [
         name: "Beaujolais-Villages",
         subtitle: "Rosé",
         price: "9,00 €",
-        description: "Un rosé de saignée, frais et gourmand. Des notes de petits fruits rouges acidulés. Le compagnon idéal de vos barbecues et salades d'été.",
+        description: "Elaboré à partir du cepage Gamay c'est un vin frais, qui présentent de façon constante des notes de fleurs et de fruits, une robe aux reflets rose saumoné. Découvrez notre sélection de Beaujolais à la vente.",
         image: "/images/13_rose-h.jpg",
         tags: ["Frais", "Estival", "Grillades"]
     },
@@ -40,7 +40,7 @@ const wines = [
         name: "Amours Pétillantes",
         subtitle: "Méthode Traditionnelle",
         price: "11,00 €",
-        description: "Nos bulles festives. Élaboré selon la méthode traditionnelle, ce vin effervescent offre une mousse fine et des arômes briochés.",
+        description: "Un vin rosé rieur, effervescent qui danse dans les verres. Pour accompagner avec finesse et élégance tous vos succès. Découvrez notre sélection de vin rosé à la vente.",
         image: "/images/32_petillan-h.jpg",
         tags: ["Bulles", "Dessert", "Fête"]
     }
@@ -68,7 +68,7 @@ export default function NosVinsPage() {
                         <div key={wine.id} className="group flex flex-col md:flex-row gap-8 items-center bg-white p-6 md:p-10 shadow-sm hover:shadow-md transition-shadow border border-gray-100 rounded-sm">
 
                             {/* Image Bouteille */}
-                            <div className="w-full md:w-1/3 h-80 relative flex-shrink-0 bg-gray-50 rounded-full overflow-hidden">
+                            <div className="w-full md:w-1/3 h-80 relative flex-shrink-0 bg-gray-50 rounded-sm overflow-hidden">
                                 <div className="absolute inset-0 flex items-center justify-center p-4">
                                     <img
                                         src={wine.image}

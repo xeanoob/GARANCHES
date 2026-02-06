@@ -17,24 +17,35 @@ export default function Home() {
     document.body.style.overflow = "hidden";
     window.scrollTo(0, 0);
 
+    // Fonction pour lancer l'animation et marquer comme "vue"
     const startAnimation = (delay = 2000) => {
       const timer = setTimeout(() => {
         setIsLoading(false);
         document.body.style.overflow = "unset";
+        sessionStorage.setItem("intro-played", "true");
       }, delay);
       return () => clearTimeout(timer);
     };
 
-    // Vérification initiale : Est-ce qu'on a déjà l'âge ?
+    // 1. A-t-on déjà vu l'intro dans cette session ? (Navigation interne)
+    const hasPlayedIntro = sessionStorage.getItem("intro-played");
+
+    if (hasPlayedIntro) {
+      // OUI -> On affiche direct sans animation
+      setIsLoading(false);
+      document.body.style.overflow = "unset";
+      return;
+    }
+
+    // 2. Sinon, vérification de l'âge (Premier chargement)
     const hasConfirmed = localStorage.getItem("age-confirmed");
 
     if (hasConfirmed) {
-      // Si oui, on lance l'animation classique
+      // Déjà majeur -> Animation classique
       startAnimation();
     } else {
-      // Sinon, on attend que le AgeGate nous dise "C'est bon"
+      // Pas encore majeur -> On attend le AgeGate
       const handleAgeConfirmed = () => {
-        // On lance l'animation plus rapidement car l'utilisateur a déjà attendu
         startAnimation(500);
       };
 
@@ -221,7 +232,6 @@ export default function Home() {
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden mb-8 bg-gray-50 flex items-center justify-center p-8 shadow-lg border border-gray-100">
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors z-10 duration-500"></div>
                   <Image src="/images/37_bourgogne-blanc-h.jpg" alt="Bourgogne Blanc" fill className="object-contain transition-transform duration-700 group-hover:scale-110 p-4" />
-                  <div className="absolute top-4 right-4 bg-amber-500 text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Best Seller</div>
                 </div>
                 <div className="text-center">
                   <h3 className="text-2xl md:text-3xl font-serif text-gray-900 group-hover:text-red-900 transition-colors">Bourgogne Blanc</h3>

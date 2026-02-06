@@ -86,7 +86,7 @@ export default function HistoirePage() {
                             <img src="/images/1_image.jpg" alt="Le Vigneron" className="w-full h-full object-cover" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Michel Stagnara</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Génération Précédente</p>
+                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Les Projets</p>
                     </div>
 
                     {/* Portrait 2 */}
@@ -95,7 +95,7 @@ export default function HistoirePage() {
                             <img src="/images/22_image.jpg" alt="La Vigneronne" className="w-full h-full object-cover" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Isabelle Stagnara</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Vigneronne</p>
+                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">La Gestion Quotidienne</p>
                     </div>
 
                     {/* Portrait 3 */}
@@ -105,6 +105,44 @@ export default function HistoirePage() {
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Ambroise Stagnara</h3>
                         <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Nouvelle Génération</p>
+                    </div>
+
+                    {/* --- NOUVEAUX MEMBRES AJOUTÉS --- */}
+
+                    {/* Portrait 4 */}
+                    <div className="text-center group">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="/images/3_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover" />
+                        </div>
+                        <h3 className="text-xl font-serif text-wine-900">Membre de l'équipe</h3>
+                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
+                    </div>
+
+                    {/* Portrait 5 */}
+                    <div className="text-center group">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="/images/4_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover" />
+                        </div>
+                        <h3 className="text-xl font-serif text-wine-900">Laeticia Stagnara</h3>
+                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
+                    </div>
+
+                    {/* Portrait 6 */}
+                    <div className="text-center group">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="/images/15_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover" />
+                        </div>
+                        <h3 className="text-xl font-serif text-wine-900">Tancrède Stagnara</h3>
+                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
+                    </div>
+
+                    {/* Portrait 7 */}
+                    <div className="text-center group">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="/images/18_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover" />
+                        </div>
+                        <h3 className="text-xl font-serif text-wine-900">Membre de l'équipe</h3>
+                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
                     </div>
 
                 </div>

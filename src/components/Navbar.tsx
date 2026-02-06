@@ -58,8 +58,8 @@ export default function Navbar() {
 
                     {/* --- LOGO --- */}
                     <Link href="/" className="flex items-center gap-3 group" onClick={closeMenu}>
-                        <div className={`relative transition-all duration-500 overflow-hidden rounded-full border border-gold-500/30 ${isNavSolid ? "h-10 w-10" : "h-14 w-14"}`}>
-                            <Image src="/images/17_logo.png" alt="Logo" fill className="object-cover" />
+                        <div className={`relative transition-all duration-500 overflow-hidden ${isNavSolid ? "h-10 w-10" : "h-14 w-14"}`}>
+                            <Image src="/images/17_logo.png" alt="Logo" fill className="object-contain" />
                         </div>
                         <span className={`font-serif font-bold uppercase tracking-widest transition-colors duration-300 ${isNavSolid ? "text-wine-900 text-lg" : "text-white text-xl drop-shadow-md"
                             }`}>
