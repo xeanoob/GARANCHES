@@ -1,4 +1,6 @@
 "use client";
+// Homepage uses 'use client' so it relies on RootLayout metadata. 
+// No changes needed here for metadata as RootLayout covers the homepage case.
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -23,6 +25,7 @@ export default function Home() {
         setIsLoading(false);
         document.body.style.overflow = "unset";
         sessionStorage.setItem("intro-played", "true");
+        window.dispatchEvent(new Event("intro-complete"));
       }, delay);
       return () => clearTimeout(timer);
     };
@@ -86,7 +89,7 @@ export default function Home() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="fixed inset-0 z-[60] bg-[#FAFAFA]"
+            className="fixed inset-0 z-[110] bg-[#FAFAFA]"
           />
         )}
       </AnimatePresence>
@@ -98,7 +101,8 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/34_slide001.jpg"
-            alt="Vignes"
+            // SEO OPTIMISÉ : Description géographique et contextuelle
+            alt="Vignes du Domaine de Garanches s'étendant au pied du Mont Brouilly à Odenas"
             fill
             className="object-cover brightness-50"
             priority
@@ -121,7 +125,7 @@ export default function Home() {
                 duration: 1.5,
                 ease: [0.22, 1, 0.36, 1] // Courbe "Luxe" très fluide
               }}
-              className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight text-center relative z-[70]"
+              className={`font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight text-center relative ${isLoading ? "z-[120]" : "z-[70]"}`}
 
             >
               Domaine de <br />
@@ -173,7 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- LE RESTE DU SITE (INCHANGÉ) --- */}
+      {/* --- SECTION TERROIR & HISTOIRE --- */}
       <section className="py-20 md:py-32 bg-stone-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn direction="right">
@@ -196,13 +200,15 @@ export default function Home() {
           <FadeIn direction="left" delay={0.2}>
             <ParallaxImage
               src="/images/23_slide002.jpg"
-              alt="Vignes du domaine en été"
+              // SEO OPTIMISÉ : Mots clés techniques sur le cépage et le lieu
+              alt="Paysage viticole du Beaujolais : vignes de Gamay du Domaine de Garanches en été"
               className="h-[400px] md:h-[600px] w-full shadow-2xl rounded-sm"
             />
           </FadeIn>
         </div>
       </section>
 
+      {/* --- SECTION BOUTIQUE (NOS CUVÉES) --- */}
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12 md:mb-20">
@@ -213,11 +219,19 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+
+            {/* Produit 1 : Brouilly */}
             <FadeIn delay={0.1} className="group cursor-pointer">
               <Link href="/nos-vins">
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden mb-8 bg-gray-50 flex items-center justify-center p-8">
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors z-10 duration-500"></div>
-                  <Image src="/images/36_brouilly-h.jpg" alt="Brouilly" fill className="object-contain transition-transform duration-700 group-hover:scale-110 p-4" />
+                  <Image
+                    src="/images/36_brouilly-h.jpg"
+                    // SEO OPTIMISÉ : Nom complet du produit
+                    alt="Bouteille de vin rouge Brouilly Cru du Beaujolais - Domaine de Garanches"
+                    fill
+                    className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
+                  />
                 </div>
                 <div className="text-center">
                   <h3 className="text-2xl md:text-3xl font-serif text-gray-900 group-hover:text-red-900 transition-colors">Brouilly</h3>
@@ -227,11 +241,19 @@ export default function Home() {
               </Link>
             </FadeIn>
 
+            {/* Produit 2 : Bourgogne Blanc */}
             <FadeIn delay={0.3} className="group cursor-pointer md:-mt-12">
               <Link href="/nos-vins">
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden mb-8 bg-gray-50 flex items-center justify-center p-8 shadow-lg border border-gray-100">
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors z-10 duration-500"></div>
-                  <Image src="/images/37_bourgogne-blanc-h.jpg" alt="Bourgogne Blanc" fill className="object-contain transition-transform duration-700 group-hover:scale-110 p-4" />
+                  <Image
+                    src="/images/37_bourgogne-blanc-h.jpg"
+                    // SEO OPTIMISÉ
+                    alt="Bouteille de Bourgogne Blanc Chardonnay - Domaine de Garanches"
+                    fill
+                    className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
+                  />
+                  <div className="absolute top-4 right-4 bg-amber-500 text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Best Seller</div>
                 </div>
                 <div className="text-center">
                   <h3 className="text-2xl md:text-3xl font-serif text-gray-900 group-hover:text-red-900 transition-colors">Bourgogne Blanc</h3>
@@ -241,11 +263,18 @@ export default function Home() {
               </Link>
             </FadeIn>
 
+            {/* Produit 3 : Pétillant */}
             <FadeIn delay={0.5} className="group cursor-pointer">
               <Link href="/nos-vins">
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden mb-8 bg-gray-50 flex items-center justify-center p-8">
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors z-10 duration-500"></div>
-                  <Image src="/images/32_petillan-h.jpg" alt="Pétillant" fill className="object-contain transition-transform duration-700 group-hover:scale-110 p-4" />
+                  <Image
+                    src="/images/32_petillan-h.jpg"
+                    // SEO OPTIMISÉ
+                    alt="Vin Pétillant Rosé Méthode Traditionnelle - Domaine de Garanches"
+                    fill
+                    className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
+                  />
                 </div>
                 <div className="text-center">
                   <h3 className="text-2xl md:text-3xl font-serif text-gray-900 group-hover:text-red-900 transition-colors">Pétillant & Rosé</h3>
@@ -254,9 +283,20 @@ export default function Home() {
                 </div>
               </Link>
             </FadeIn>
+
+          </div>
+
+          <div className="mt-16 md:mt-20 text-center">
+            <Link
+              href="/nos-vins"
+              className="inline-block px-8 py-3 md:px-12 md:py-4 border border-gray-900 text-gray-900 uppercase tracking-widest text-xs font-bold hover:bg-gray-900 hover:text-white transition-all duration-300"
+            >
+              Voir toute la cave
+            </Link>
           </div>
         </div>
       </section>
+
     </main>
   );
 }

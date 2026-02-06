@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Notre Histoire | Domaine de Garanches",
-    description: "Une histoire de famille depuis 1788. Découvrez les vignerons derrière le Domaine de Garanches à Odenas.",
+    title: "Notre Histoire | Domaine de Garanches - Depuis 1788",
+    description: "Plongez dans l'histoire du Domaine de Garanches à Odenas. Une tradition viticole familiale perpétuée depuis le XVIIIe siècle au pied du Mont Brouilly par la famille Bender, reprise par Romain & Aurélie.",
 };
 
 export default function HistoirePage() {
@@ -23,7 +23,7 @@ export default function HistoirePage() {
                     <div className="relative h-[500px] w-full bg-gray-100 rounded-sm overflow-hidden shadow-lg transform md:-rotate-1 transition-transform hover:rotate-0 duration-700">
                         <img
                             src="/images/10_slide003.jpg"
-                            alt="Archives du domaine"
+                            alt="Vieux manuscrits et archives familiales du Domaine de Garanches (1788)"
                             className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-wine-900/10 mix-blend-multiply"></div>
@@ -52,7 +52,7 @@ export default function HistoirePage() {
                 <div className="max-w-5xl mx-auto px-6 text-center">
                     <img
                         src="/images/17_logo.png"
-                        alt="Dessin du domaine"
+                        alt="Illustration gravure du Château de Garanches"
                         className="h-32 w-auto mx-auto mb-8 opacity-80"
                     />
                     <h2 className="text-3xl font-serif text-wine-900 mb-8">Le Domaine Aujourd'hui</h2>
@@ -64,9 +64,9 @@ export default function HistoirePage() {
 
                     {/* Galerie Photo rapide */}
                     <div className="grid grid-cols-3 gap-4 mt-12">
-                        <img src="/images/34_slide001.jpg" className="h-48 w-full object-cover rounded-sm" alt="Chai" />
-                        <img src="/images/11_image.jpg" className="h-48 w-full object-cover rounded-sm" alt="Vignes" />
-                        <img src="/images/9_image.jpg" className="h-48 w-full object-cover rounded-sm" alt="Vendanges" />
+                        <img src="/images/34_slide001.jpg" className="h-48 w-full object-cover rounded-sm" alt="Chai de vieillissement et fûts de chêne" />
+                        <img src="/images/11_image.jpg" className="h-48 w-full object-cover rounded-sm" alt="Vignes de Gamay au pied du Mont Brouilly" />
+                        <img src="/images/9_image.jpg" className="h-48 w-full object-cover rounded-sm" alt="Vendanges manuelles au Domaine de Garanches" />
                     </div>
                 </div>
             </section>

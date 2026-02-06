@@ -72,7 +72,7 @@ export default function NosVinsPage() {
                                 <div className="absolute inset-0 flex items-center justify-center p-4">
                                     <img
                                         src={wine.image}
-                                        alt={wine.name}
+                                        alt={`${wine.name} - Domaine de Garanches`}
 
                                         className="h-full w-auto object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
                                     />

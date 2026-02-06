@@ -58,7 +58,7 @@ export default function VisitePage() {
                 <div className="relative h-[500px] w-full bg-gray-200 rounded-sm shadow-xl overflow-hidden">
                     <Image
                         src="/images/23_slide002.jpg"
-                        alt="Entrée du domaine"
+                        alt="Entrée principale et vignoble du Domaine de Garanches à Odenas"
                         fill
                         className="object-cover"
                     />

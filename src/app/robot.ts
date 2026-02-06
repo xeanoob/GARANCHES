@@ -1,12 +1,12 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
-            userAgent: '*',
-            allow: '/',
+            userAgent: "*",
+            allow: "/",
+            disallow: ["/api/", "/admin/"], // Protège les dossiers techniques
         },
-        // Remplace par ton vrai nom de domaine quand tu l'auras
-        sitemap: 'https://www.domainedegaranches.com/sitemap.xml',
-    }
+        sitemap: "https://domainedegaranches.com/sitemap.xml",
+    };
 }

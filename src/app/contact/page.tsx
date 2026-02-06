@@ -54,7 +54,7 @@ export default function ContactPage() {
                         <div className="mt-8 h-48 w-full relative overflow-hidden rounded-sm">
                             <img
                                 src="/images/34_slide001.jpg"
-                                alt="Chai du domaine"
+                                alt="Cave voûtée avec fûts de chêne au Domaine de Garanches"
                                 className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
                             />
                         </div>
