@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
     title: "Contact & Accès | Domaine de Garanches",
@@ -10,97 +11,132 @@ export default function ContactPage() {
         <main className="min-h-screen bg-paper pt-32 pb-20">
 
             {/* --- EN-TÊTE --- */}
-            <div className="text-center px-6 mb-16">
-                <h1 className="text-5xl font-serif text-wine-900 mb-6">Nous Contacter</h1>
-                <p className="max-w-xl mx-auto text-gray-600 font-light">
+            <FadeIn direction="down" className="text-center px-6 mb-16">
+                <span className="text-amber-600 font-serif italic text-lg mb-2 block">À votre écoute</span>
+                <h1 className="text-5xl md:text-6xl font-serif text-wine-900 mb-6 font-medium">Nous Contacter</h1>
+                <p className="max-w-xl mx-auto text-gray-600 font-light text-lg">
                     Pour toute commande, demande de tarif ou pour organiser une visite au domaine,
                     n'hésitez pas à nous laisser un message.
                 </p>
-            </div>
+            </FadeIn>
 
             <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
 
                 {/* --- COLONNE GAUCHE : COORDONNÉES --- */}
-                <div className="bg-white p-10 border border-gray-100 shadow-sm rounded-sm">
-                    <h2 className="text-2xl font-serif text-wine-900 mb-8">Nos Coordonnées</h2>
+                <FadeIn direction="right" delay={0.2}>
+                    <div className="bg-white p-10 border border-gray-100 shadow-lg rounded-3xl relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
+                        <h2 className="text-3xl font-serif text-wine-900 mb-10 relative z-10">Nos Coordonnées</h2>
 
-                    <div className="space-y-8">
-                        <div>
-                            <span className="text-gold-500 uppercase tracking-widest text-xs font-bold block mb-2">Adresse</span>
-                            <p className="text-gray-700 leading-relaxed">
-                                Domaine de Garanches<br />
-                                345 chemin de Garanches<br />
-                                69460 Odenas<br />
-                                France
-                            </p>
-                        </div>
+                        <div className="space-y-10 relative z-10">
+                            <div className="flex gap-4">
+                                <div className="w-12 h-12 bg-wine-50 rounded-full flex items-center justify-center shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-wine-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span className="text-amber-600 uppercase tracking-widest text-xs font-bold block mb-1">Adresse</span>
+                                    <p className="text-gray-700 leading-relaxed font-medium">
+                                        Domaine de Garanches<br />
+                                        345 chemin de Garanches<br />
+                                        69460 Odenas<br />
+                                        France
+                                    </p>
+                                </div>
+                            </div>
 
-                        <div>
-                            <span className="text-gold-500 uppercase tracking-widest text-xs font-bold block mb-2">Téléphone</span>
-                            <p className="text-gray-700 hover:text-wine-700 transition-colors">
-                                <a href="tel:+33474034480">04 74 03 44 80</a>
-                            </p>
-                        </div>
+                            <div className="flex gap-4">
+                                <div className="w-12 h-12 bg-wine-50 rounded-full flex items-center justify-center shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-wine-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span className="text-amber-600 uppercase tracking-widest text-xs font-bold block mb-1">Téléphone</span>
+                                    <p className="text-gray-900 hover:text-wine-700 transition-colors font-bold text-lg">
+                                        <a href="tel:+33474034480">04 74 03 44 80</a>
+                                    </p>
+                                </div>
+                            </div>
 
-                        <div>
-                            <span className="text-gold-500 uppercase tracking-widest text-xs font-bold block mb-2">Horaires</span>
-                            <p className="text-gray-700 leading-relaxed">
-                                Nous vous accueillons au caveau sur rendez-vous.<br />
-                                <span className="text-sm text-gray-500 italic">Fermé le dimanche.</span>
-                            </p>
-                        </div>
+                            <div className="flex gap-4">
+                                <div className="w-12 h-12 bg-wine-50 rounded-full flex items-center justify-center shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-wine-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span className="text-amber-600 uppercase tracking-widest text-xs font-bold block mb-1">Horaires</span>
+                                    <p className="text-gray-700 leading-relaxed">
+                                        Nous vous accueillons au caveau sur rendez-vous.<br />
+                                        <span className="text-sm text-gray-500 italic">Fermé le dimanche.</span>
+                                    </p>
+                                </div>
+                            </div>
 
-                        {/* Image d'ambiance (Cave / Fûts) */}
-                        <div className="mt-8 h-48 w-full relative overflow-hidden rounded-sm">
-                            <img
-                                src="/images/34_slide001.jpg"
-                                alt="Cave voûtée avec fûts de chêne au Domaine de Garanches"
-                                className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
-                            />
+                            {/* Image d'ambiance (Cave / Fûts) */}
+                            <div className="mt-8 h-48 w-full relative overflow-hidden rounded-2xl shadow-md group-hover:shadow-lg transition-all">
+                                <img
+                                    src="/images/34_slide001.jpg"
+                                    alt="Cave voûtée avec fûts de chêne au Domaine de Garanches"
+                                    className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-1000"
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </FadeIn>
 
                 {/* --- COLONNE DROITE : FORMULAIRE --- */}
-                <div className="bg-wine-100/30 p-10 rounded-sm">
-                    <h2 className="text-2xl font-serif text-wine-900 mb-8">Envoyer un message</h2>
+                <FadeIn direction="left" delay={0.4}>
+                    <div className="bg-gradient-to-br from-wine-50 to-white p-10 rounded-3xl shadow-lg border border-white">
+                        <h2 className="text-3xl font-serif text-wine-900 mb-8">Envoyer un message</h2>
 
-                    <form className="space-y-6">
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Nom</label>
-                                <input type="text" className="w-full bg-white border border-gray-200 p-3 focus:outline-none focus:border-wine-700 transition-colors" />
+                        <form className="space-y-6">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Nom</label>
+                                    <input type="text" className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm" placeholder="Votre nom" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Email</label>
+                                    <input type="email" className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm" placeholder="votre@email.com" />
+                                </div>
                             </div>
+
                             <div>
-                                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
-                                <input type="email" className="w-full bg-white border border-gray-200 p-3 focus:outline-none focus:border-wine-700 transition-colors" />
+                                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Sujet</label>
+                                <div className="relative">
+                                    <select className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm text-gray-700 appearance-none cursor-pointer">
+                                        <option>Je souhaite passer commande</option>
+                                        <option>Demande de tarifs d'expédition</option>
+                                        <option>Visite / Dégustation</option>
+                                        <option>Autre demande</option>
+                                    </select>
+                                    <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
+                                        <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div>
-                            <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Sujet</label>
-                            <select className="w-full bg-white border border-gray-200 p-3 focus:outline-none focus:border-wine-700 transition-colors text-gray-700">
-                                <option>Je souhaite passer commande</option>
-                                <option>Demande de tarifs d'expédition</option>
-                                <option>Visite / Dégustation</option>
-                                <option>Autre demande</option>
-                            </select>
-                        </div>
+                            <div>
+                                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Message</label>
+                                <textarea rows={5} className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm resize-none" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                            </div>
 
-                        <div>
-                            <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
-                            <textarea rows={5} className="w-full bg-white border border-gray-200 p-3 focus:outline-none focus:border-wine-700 transition-colors"></textarea>
-                        </div>
+                            <button type="submit" className="w-full bg-wine-900 text-white py-4 uppercase tracking-widest text-xs font-bold hover:bg-amber-600 transition-colors rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300">
+                                Envoyer ma demande
+                            </button>
 
-                        <button type="submit" className="w-full bg-wine-900 text-white py-4 uppercase tracking-widest text-xs font-bold hover:bg-gold-500 transition-colors">
-                            Envoyer ma demande
-                        </button>
-
-                        <p className="text-xs text-gray-400 text-center mt-4">
-                            Ce formulaire est une démonstration visuelle pour l'instant.
-                        </p>
-                    </form>
-                </div>
+                            <p className="text-xs text-gray-400 text-center mt-4 italic">
+                                Ce formulaire est une démonstration visuelle pour l'instant.
+                            </p>
+                        </form>
+                    </div>
+                </FadeIn>
 
             </div>
         </main>

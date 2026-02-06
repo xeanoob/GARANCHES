@@ -158,16 +158,16 @@ export default function Home() {
               Au cœur du Beaujolais, au pied du Mont Brouilly, découvrez l'élégance d'un savoir-faire familial séculaire.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-6 justify-center items-center w-full">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center w-full px-6">
               <Link
                 href="/nos-vins"
-                className="w-full sm:w-auto px-6 py-3 md:px-10 md:py-4 bg-red-900/90 hover:bg-red-800 text-white uppercase tracking-widest text-[10px] md:text-xs font-bold transition-all border border-red-900 hover:scale-105 duration-300"
+                className="w-full sm:w-auto px-6 py-3 md:px-10 md:py-4 bg-red-900/90 hover:bg-red-800 text-white uppercase tracking-widest text-[10px] md:text-xs font-bold transition-all border border-red-900 hover:scale-105 duration-300 rounded-full"
               >
                 Découvrir nos vins
               </Link>
               <Link
                 href="/visite"
-                className="w-full sm:w-auto px-6 py-3 md:px-10 md:py-4 bg-transparent hover:bg-white/10 text-white uppercase tracking-widest text-[10px] md:text-xs font-bold transition-all border border-white hover:scale-105 duration-300"
+                className="w-full sm:w-auto px-6 py-3 md:px-10 md:py-4 bg-transparent hover:bg-white/10 text-white uppercase tracking-widest text-[10px] md:text-xs font-bold transition-all border border-white hover:scale-105 duration-300 rounded-full"
               >
                 Venir au domaine
               </Link>
@@ -197,13 +197,15 @@ export default function Home() {
             </div>
           </FadeIn>
 
+          {/* Image Parallaxe Manquante */}
           <FadeIn direction="left" delay={0.2}>
-            <ParallaxImage
-              src="/images/23_slide002.jpg"
-              // SEO OPTIMISÉ : Mots clés techniques sur le cépage et le lieu
-              alt="Paysage viticole du Beaujolais : vignes de Gamay du Domaine de Garanches en été"
-              className="h-[400px] md:h-[600px] w-full shadow-2xl rounded-sm"
-            />
+            <div className="h-[500px] w-full relative">
+              <ParallaxImage
+                src="/images/23_slide002.jpg"
+                alt="Grappe de raisin Gamay du Beaujolais sur cep de vigne"
+                className="h-full w-full rounded-2xl shadow-xl"
+              />
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -289,13 +291,15 @@ export default function Home() {
           <div className="mt-16 md:mt-20 text-center">
             <Link
               href="/nos-vins"
-              className="inline-block px-8 py-3 md:px-12 md:py-4 border border-gray-900 text-gray-900 uppercase tracking-widest text-xs font-bold hover:bg-gray-900 hover:text-white transition-all duration-300"
+              className="inline-block px-8 py-3 md:px-12 md:py-4 border border-gray-900 text-gray-900 uppercase tracking-widest text-xs font-bold hover:bg-gray-900 hover:text-white transition-all duration-300 rounded-full"
             >
               Voir toute la cave
             </Link>
           </div>
         </div>
       </section>
+
+
 
     </main>
   );

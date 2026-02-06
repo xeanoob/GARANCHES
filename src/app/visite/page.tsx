@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
     title: "Visite & Accès | Domaine de Garanches",
@@ -13,56 +14,82 @@ export default function VisitePage() {
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
                 {/* Colonne Texte */}
-                <div>
-                    <span className="text-amber-500 font-serif italic text-xl">Œnotourisme</span>
-                    <h1 className="text-5xl font-serif text-red-900 mt-4 mb-8">Venir au Domaine</h1>
+                <FadeIn direction="right">
+                    <div>
+                        <span className="text-amber-600 font-serif italic text-xl block mb-2">Œnotourisme</span>
+                        <h1 className="text-5xl md:text-6xl font-serif text-wine-900 mb-8 leading-tight">Venir au <br />Domaine</h1>
 
-                    <div className="space-y-8 text-gray-600 font-light leading-relaxed">
-                        <p>
-                            Nous sommes toujours ravis d'accueillir des passionnés de vin.
-                            Le domaine est situé au cœur du Beaujolais, au pied du Mont Brouilly.
-                        </p>
-
-                        <div className="bg-white p-6 shadow-sm border-l-4 border-amber-500">
-                            <h3 className="font-bold text-red-900 uppercase tracking-widest text-sm mb-2">Accès</h3>
-                            <p className="text-sm">
-                                <strong>Depuis Lyon ou Paris (A6) :</strong><br />
-                                Sortez à Belleville/Saône (Sortie 30).<br />
-                                Prenez la direction <em>Charentay</em>.<br />
-                                En sortant de Charentay, suivez la route d'Odenas.<br />
-                                Le domaine se trouvera sur votre gauche.
+                        <div className="space-y-8 text-gray-600 font-light leading-relaxed">
+                            <p className="text-lg">
+                                Nous sommes toujours ravis d'accueillir des passionnés de vin.
+                                Le domaine est situé au cœur du Beaujolais, au pied du Mont Brouilly.
                             </p>
-                        </div>
 
-                        <div>
-                            <h3 className="font-bold text-red-900 uppercase tracking-widest text-sm mb-2">Adresse</h3>
-                            <p>
-                                145 Rue des Garanches<br />
-                                69460 Odenas<br />
-                                France
-                            </p>
-                        </div>
+                            <div className="bg-white p-8 shadow-sm rounded-2xl border border-gray-100 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                <div className="absolute top-0 left-0 w-1 h-full bg-amber-500 group-hover:w-2 transition-all"></div>
+                                <h3 className="font-bold text-wine-900 uppercase tracking-widest text-sm mb-4">Accès</h3>
+                                <p className="text-sm leading-7">
+                                    <strong className="text-gray-900">Depuis Lyon ou Paris (A6) :</strong><br />
+                                    Sortez à Belleville/Saône (Sortie 30).<br />
+                                    Prenez la direction <em className="text-amber-600">Charentay</em>.<br />
+                                    En sortant de Charentay, suivez la route d'Odenas.<br />
+                                    Le domaine se trouvera sur votre gauche.
+                                </p>
+                            </div>
 
-                        <div className="pt-6">
-                            <Link
-                                href="/contact"
-                                className="px-8 py-3 bg-red-900 text-white uppercase font-bold text-xs tracking-widest hover:bg-amber-500 transition-colors"
-                            >
-                                Prendre Rendez-vous
-                            </Link>
+                            <div className="flex flex-col sm:flex-row gap-8">
+                                <div>
+                                    <h3 className="font-bold text-wine-900 uppercase tracking-widest text-xs mb-3 flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        Adresse
+                                    </h3>
+                                    <p className="text-sm">
+                                        145 Rue des Garanches<br />
+                                        69460 Odenas<br />
+                                        France
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-wine-900 uppercase tracking-widest text-xs mb-3 flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Horaires
+                                    </h3>
+                                    <p className="text-sm">
+                                        Sur rendez-vous<br />
+                                        Du Lundi au Samedi
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="pt-6">
+                                <Link
+                                    href="/contact"
+                                    className="inline-block px-10 py-4 bg-wine-900 text-white uppercase font-bold text-xs tracking-widest hover:bg-amber-600 transition-colors rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300"
+                                >
+                                    Prendre Rendez-vous
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </FadeIn>
 
                 {/* Colonne Image / Carte */}
-                <div className="relative h-[500px] w-full bg-gray-200 rounded-sm shadow-xl overflow-hidden">
-                    <Image
-                        src="/images/23_slide002.jpg"
-                        alt="Entrée principale et vignoble du Domaine de Garanches à Odenas"
-                        fill
-                        className="object-cover"
-                    />
-                </div>
+                <FadeIn direction="left" delay={0.2}>
+                    <div className="relative h-[600px] w-full bg-gray-200 rounded-2xl shadow-2xl overflow-hidden group">
+                        <Image
+                            src="/images/23_slide002.jpg"
+                            alt="Entrée principale et vignoble du Domaine de Garanches à Odenas"
+                            fill
+                            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+                    </div>
+                </FadeIn>
 
             </div>
         </main>

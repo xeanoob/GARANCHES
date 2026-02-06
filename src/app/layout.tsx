@@ -9,6 +9,7 @@ import AgeGate from "@/components/AgeGate";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
+import { CartProvider } from "@/context/CartContext"; // 1. On ajoute l'import
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ const montserrat = Montserrat({
 
 // --- CONFIGURATION SEO ---
 export const metadata: Metadata = {
-  metadataBase: new URL('https://domainedegaranches.com'), // Ton vrai domaine
+  metadataBase: new URL('https://domainedegaranches.com'),
   title: {
     default: "Domaine de Garanches | Vins de Brouilly & Bourgogne Blanc - Odenas",
     template: "%s | Domaine de Garanches"
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/34_slide001.jpg", // Image partagée sur Facebook/WhatsApp
+        url: "/images/34_slide001.jpg",
         width: 1200,
         height: 630,
         alt: "Vignes du Domaine de Garanches au Mont Brouilly",
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
 // --- DONNÉES STRUCTURÉES (JSON-LD) ---
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Winery", // Google sait maintenant que c'est un vignoble
+  "@type": "Winery",
   "name": "Domaine de Garanches",
   "image": "https://domainedegaranches.com/images/34_slide001.jpg",
   "url": "https://domainedegaranches.com",
@@ -115,7 +116,6 @@ export default async function RootLayout({
   return (
     <html lang="fr" className={`${cormorant.variable} ${montserrat.variable}`}>
       <body className="bg-white text-stone-900 antialiased overflow-x-hidden selection:bg-wine-900 selection:text-white">
-        {/* Intégration du JSON-LD pour Google Maps/Search */}
         <Script
           id="json-ld"
           type="application/ld+json"
@@ -123,13 +123,20 @@ export default async function RootLayout({
         />
 
         <div className="bg-noise"></div>
-        <CustomCursor />
-        <AgeGate initialShow={!hasConfirmed} />
-        <SmoothScroll />
-        <Navbar />
-        {children}
-        <Footer />
-        <ScrollToTop />
+
+        {/* 2. On enveloppe tout le contenu avec le CartProvider */}
+        <CartProvider>
+          <CustomCursor />
+          <AgeGate initialShow={!hasConfirmed} />
+          <SmoothScroll />
+          <Navbar />
+          {children}
+          <Footer />
+          <ScrollToTop />
+        </CartProvider>
+
+        {/* Le SDK SumUp est déjà là, c'est parfait */}
+        <script src="https://gateway.sumup.com/gateway/ecom/card/v1.0/sdk.js"></script>
       </body>
     </html>
   );
