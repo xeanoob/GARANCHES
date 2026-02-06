@@ -17,13 +17,33 @@ export default function Home() {
     document.body.style.overflow = "hidden";
     window.scrollTo(0, 0);
 
-    // Timer un peu plus long pour apprécier l'intro
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      document.body.style.overflow = "unset";
-    }, 2000);
+    const startAnimation = (delay = 2000) => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.overflow = "unset";
+      }, delay);
+      return () => clearTimeout(timer);
+    };
 
-    return () => clearTimeout(timer);
+    // Vérification initiale : Est-ce qu'on a déjà l'âge ?
+    const hasConfirmed = localStorage.getItem("age-confirmed");
+
+    if (hasConfirmed) {
+      // Si oui, on lance l'animation classique
+      startAnimation();
+    } else {
+      // Sinon, on attend que le AgeGate nous dise "C'est bon"
+      const handleAgeConfirmed = () => {
+        // On lance l'animation plus rapidement car l'utilisateur a déjà attendu
+        startAnimation(500);
+      };
+
+      window.addEventListener("age-gate-confirmed", handleAgeConfirmed);
+
+      return () => {
+        window.removeEventListener("age-gate-confirmed", handleAgeConfirmed);
+      };
+    }
   }, []);
 
   // Variantes pour contrôler l'animation précise du titre
@@ -74,22 +94,10 @@ export default function Home() {
           />
         </div>
 
-        {/* Contenu textuel */}
-        <div className="relative text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+        {/* Contenu textuel - Ajustement du padding pour remonter le tout */}
+        <div className="relative text-center px-4 max-w-7xl mx-auto flex flex-col items-center pt-20 md:pt-24">
 
 
-
-          {/* Sous-titre : On le cache juste avec l'opacité pour qu'il garde sa place physique */}
-          <motion.div
-            animate={{ opacity: isLoading ? 0 : 1 }}
-            transition={{ duration: 1, delay: 1.6 }} // Apparaît APRÈS que le fond blanc soit parti
-
-            className="mb-6"
-          >
-            <span className="uppercase tracking-[0.3em] text-[10px] md:text-sm text-amber-400 font-bold block">
-              Depuis 1788 — Odenas
-            </span>
-          </motion.div>
 
           {/* --- LE TITRE UNIQUE --- */}
           {/* Il est toujours 'relative'. On change juste son Y et sa COULEUR via Framer. */}
@@ -102,7 +110,7 @@ export default function Home() {
                 duration: 1.5,
                 ease: [0.22, 1, 0.36, 1] // Courbe "Luxe" très fluide
               }}
-              className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-9xl leading-tight text-center relative z-[70]"
+              className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight text-center relative z-[70]"
 
             >
               Domaine de <br />
@@ -110,16 +118,28 @@ export default function Home() {
             </motion.h1>
           )}
 
+          {/* Sous-titre : Déplacé sous le titre pour un meilleur rendu */}
+          <motion.div
+            animate={{ opacity: isLoading ? 0 : 1 }}
+            transition={{ duration: 1, delay: 1.6 }} // Apparaît APRÈS que le fond blanc soit parti
+
+            className="mb-8 mt-4"
+          >
+            <span className="uppercase tracking-[0.3em] text-[10px] md:text-sm text-amber-400 font-bold block">
+              Depuis 1788 — Odenas
+            </span>
+          </motion.div>
+
           {/* Reste du contenu : On le cache aussi avec l'opacité pour ne pas gêner le mouvement */}
           <motion.div
             animate={{ opacity: isLoading ? 0 : 1 }}
             transition={{ duration: 1, delay: 1.9 }}
 
-            className="mt-8 flex flex-col items-center"
+            className="mt-4 flex flex-col items-center"
           >
-            <div className="w-16 h-0.5 md:w-24 md:h-1 bg-amber-500 mb-8"></div>
+            <div className="w-16 h-0.5 md:w-24 md:h-1 bg-amber-500 mb-6"></div>
 
-            <p className="text-sm md:text-2xl font-light max-w-xl mb-12 text-gray-100 leading-relaxed px-2 text-white">
+            <p className="text-sm md:text-lg font-light max-w-xl mb-8 text-gray-100 leading-relaxed px-2 text-white">
               Au cœur du Beaujolais, au pied du Mont Brouilly, découvrez l'élégance d'un savoir-faire familial séculaire.
             </p>
 

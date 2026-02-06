@@ -49,7 +49,7 @@ export default function Navbar() {
                 y: isNavVisible ? 0 : -20
             }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`fixed w-full z-50 transition-colors duration-500 ${isNavSolid ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
+            className={`fixed w-full z-[200] transition-colors duration-500 ${isNavSolid ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
                 }`}
         >
 

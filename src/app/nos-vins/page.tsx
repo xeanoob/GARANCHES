@@ -81,9 +81,9 @@ export default function NosVinsPage() {
 
                             {/* Texte & Détails */}
                             <div className="w-full md:w-2/3 text-center md:text-left">
-                                <div className="flex flex-col md:flex-row justify-between items-baseline mb-2">
+                                <div className="flex flex-col md:flex-row justify-between items-center mb-2">
                                     <h2 className="text-3xl font-serif text-wine-900">{wine.name}</h2>
-                                    <span className="text-xl font-bold text-gold-500 mt-2 md:mt-0">{wine.price}</span>
+                                    <span className="text-xl font-bold text-gold-500 mt-2 md:mt-0 whitespace-nowrap">{wine.price}</span>
                                 </div>
 
                                 <p className="text-wine-700 text-sm uppercase tracking-widest font-bold mb-4">{wine.subtitle}</p>

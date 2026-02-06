@@ -15,7 +15,7 @@ import CustomCursor from "@/components/CustomCursor";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
-  display: "swap",
+  display: "swap", // Garder swap pour éviter que le texte soit invisible, c'est mieux pour le SEO/UX
 });
 
 const lato = Lato({
@@ -30,18 +30,23 @@ export const metadata: Metadata = {
   description: "Créateur de Brouilly depuis 1788. Vente directe de vins du Beaujolais.",
 };
 
-export default function RootLayout({
+import { cookies } from "next/headers";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const hasConfirmed = cookieStore.has("age-confirmed");
+
   return (
     <html lang="fr" className={`${playfair.variable} ${lato.variable}`}>
       <body className="font-sans antialiased bg-[#FAFAFA] text-gray-800 flex flex-col min-h-screen overflow-x-hidden">
 
         {/* --- FONCTIONNALITÉS UX --- */}
         <SmoothScroll />      {/* Défilement fluide */}
-        <AgeGate />           {/* Vérification âge */}
+        <AgeGate initialShow={!hasConfirmed} />           {/* Vérification âge init par Cookie */}
         <CustomCursor />      {/* Curseur personnalisé (Desktop) */}
 
         {/* --- TEXTURE --- */}
