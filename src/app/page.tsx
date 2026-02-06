@@ -134,24 +134,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* --- FOOTER SOMBRE --- */}
-      <footer className="bg-wine-900 text-white/80 py-20 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-10">
-          <div>
-            <h4 className="font-serif text-2xl text-white mb-4">Domaine de Garanches</h4>
-            <p className="font-light text-sm leading-loose">
-              345 chemin de Garanches<br />
-              69460 Odenas — France<br />
-              +33 4 74 03 44 80
-            </p>
-          </div>
-          <div className="flex flex-col gap-4">
-            <Link href="/contact" className="uppercase tracking-widest text-xs font-bold hover:text-gold-500 transition-colors">Nous rendre visite</Link>
-            <Link href="/mentions-legales" className="uppercase tracking-widest text-xs font-bold hover:text-gold-500 transition-colors">Mentions légales</Link>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

@@ -3,10 +3,11 @@ import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
 // Configuration des polices
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-playfair", // On crée une variable CSS
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${playfair.variable} ${lato.variable}`}>
       <body className="font-sans antialiased bg-[#FAFAFA] text-gray-800">
-        <Navbar />     {children}
+        <Navbar />
+        {children}
+        <Footer /> {/* <--- C'est ici que je l'ai ajouté */}
       </body>
     </html>
   );
