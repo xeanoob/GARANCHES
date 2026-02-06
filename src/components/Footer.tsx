@@ -5,7 +5,7 @@ export default function Footer() {
 
     return (
         <footer className="bg-wine-900 text-white/80 py-16 px-6 border-t border-white/10">
-            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center">
 
                 {/* Colonne 1 : Adresse */}
                 <div>
@@ -18,14 +18,14 @@ export default function Footer() {
                 </div>
 
                 {/* Colonne 2 : Navigation */}
-                <div className="flex flex-col gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
+                <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
                     <Link href="/notre-histoire" className="hover:text-gold-500 transition-colors">Le Domaine</Link>
                     <Link href="/nos-vins" className="hover:text-gold-500 transition-colors">Nos Vins</Link>
                     <Link href="/visite" className="hover:text-gold-500 transition-colors">Visite & Dégustation</Link>
                 </div>
 
                 {/* Colonne 3 : Légal */}
-                <div className="flex flex-col gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
+                <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
                     <Link href="/contact" className="hover:text-gold-500 transition-colors">Contact</Link>
                     <Link href="/mentions-legales" className="hover:text-gold-500 transition-colors">Mentions légales</Link>
                 </div>

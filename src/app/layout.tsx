@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Lato } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -10,15 +10,15 @@ import SmoothScroll from "@/components/SmoothScroll";
 import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-serif",
   display: 'swap',
 });
 
-const lato = Lato({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
   variable: "--font-sans",
   display: 'swap',
 });
@@ -113,7 +113,7 @@ export default async function RootLayout({
   const hasConfirmed = cookieStore.get("age-confirmed")?.value === "true";
 
   return (
-    <html lang="fr" className={`${playfair.variable} ${lato.variable}`}>
+    <html lang="fr" className={`${cormorant.variable} ${montserrat.variable}`}>
       <body className="bg-white text-stone-900 antialiased overflow-x-hidden selection:bg-wine-900 selection:text-white">
         {/* Intégration du JSON-LD pour Google Maps/Search */}
         <Script
