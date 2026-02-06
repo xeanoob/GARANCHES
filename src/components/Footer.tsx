@@ -28,6 +28,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
                     <Link href="/contact" className="hover:text-gold-500 transition-colors">Contact</Link>
                     <Link href="/mentions-legales" className="hover:text-gold-500 transition-colors">Mentions légales</Link>
+                    <Link href="/cgv" className="hover:text-gold-500 transition-colors">CGV</Link>
                 </div>
             </div>
 
