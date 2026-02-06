@@ -1,70 +1,85 @@
-"use client"; // ⚠️ Indispensable pour l'interactivité (clic)
+"use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 export default function Navbar() {
-    // État pour savoir si le menu est ouvert (true) ou fermé (false)
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const { scrollY } = useScroll();
 
-    // Fonction pour fermer le menu quand on clique sur un lien
+    // Détecte si on a scrollé plus de 50px
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsScrolled(latest > 50);
+    });
+
+    const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <motion.nav
+            className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
+                }`}
+        >
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex justify-between items-center">
 
-                {/* LOGO */}
-                <Link href="/" className="text-2xl font-serif font-bold text-wine-900 tracking-tighter" onClick={closeMenu}>
-                    DOMAINE DE GARANCHES
-                </Link>
-
-                {/* MENU ORDI (Caché sur mobile) */}
-                <div className="hidden md:flex space-x-8 items-center font-sans text-sm uppercase tracking-widest font-semibold text-gray-600">
-                    <Link href="/" className="hover:text-wine-700 transition-colors">Accueil</Link>
-                    <Link href="/notre-histoire" className="hover:text-wine-700 transition-colors">Le Domaine</Link>
-                    <Link href="/nos-vins" className="hover:text-wine-700 transition-colors">Nos Vins</Link>
-                    <Link href="/contact" className="hover:text-wine-700 transition-colors">Contact</Link>
-                    <Link href="/nos-vins" className="px-5 py-2 bg-wine-900 text-white rounded text-xs hover:bg-gold-500 transition-colors">
-                        Boutique
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center gap-3 group" onClick={closeMenu}>
+                        <div className={`relative transition-all duration-500 overflow-hidden rounded-full border border-gold-500/30 ${isScrolled ? "h-10 w-10" : "h-14 w-14"}`}>
+                            <Image src="/images/17_logo.png" alt="Logo" fill className="object-cover" />
+                        </div>
+                        <span className={`font-serif font-bold uppercase tracking-widest transition-colors duration-300 ${isScrolled ? "text-wine-900 text-lg" : "text-white text-xl drop-shadow-md"
+                            }`}>
+                            Garanches
+                        </span>
                     </Link>
-                </div>
 
-                {/* BOUTON BURGER (Visible uniquement sur mobile) */}
-                <button
-                    className="md:hidden text-wine-900 p-2 focus:outline-none"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {/* Icône Hamburger (3 traits) ou Croix (X) selon l'état */}
-                    {isOpen ? (
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                    ) : (
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-                    )}
-                </button>
+                    {/* Menu Desktop */}
+                    <div className="hidden md:flex items-center space-x-8">
+                        {[
+                            { name: 'Accueil', path: '/' },
+                            { name: 'Nos Vins', path: '/nos-vins' },
+                            { name: 'Histoire', path: '/notre-histoire' },
+                            { name: 'Visite', path: '/visite' },
+                            { name: 'Contact', path: '/contact' },
+                        ].map((link) => (
+                            <Link
+                                key={link.path}
+                                href={link.path}
+                                className={`uppercase text-xs font-bold tracking-[0.15em] hover:text-gold-500 transition-colors ${isScrolled ? "text-gray-600" : "text-white/90 drop-shadow-sm"
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </div>
+
+                    {/* Bouton Mobile */}
+                    <div className="md:hidden">
+                        <button onClick={toggleMenu} className={`p-2 ${isScrolled ? "text-wine-900" : "text-white"}`}>
+                            {isOpen ? "FERMER" : "MENU"}
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            {/* LE MENU MOBILE DÉROULANT */}
-            {/* On l'affiche seulement si isOpen est vrai */}
+            {/* Menu Mobile Plein Écran Animé */}
             {isOpen && (
-                <div className="md:hidden absolute top-20 left-0 right-0 bg-white border-b border-gray-100 shadow-xl py-8 px-6 flex flex-col space-y-6 animate-in slide-in-from-top-5 duration-200">
-                    <Link href="/" onClick={closeMenu} className="text-xl font-serif text-wine-900 border-b border-gray-50 pb-2">
-                        Accueil
-                    </Link>
-                    <Link href="/notre-histoire" onClick={closeMenu} className="text-xl font-serif text-wine-900 border-b border-gray-50 pb-2">
-                        Le Domaine
-                    </Link>
-                    <Link href="/nos-vins" onClick={closeMenu} className="text-xl font-serif text-wine-900 border-b border-gray-50 pb-2">
-                        Nos Vins
-                    </Link>
-                    <Link href="/contact" onClick={closeMenu} className="text-xl font-serif text-wine-900 border-b border-gray-50 pb-2">
-                        Contact & Accès
-                    </Link>
-                    <Link href="/nos-vins" onClick={closeMenu} className="inline-block text-center py-3 bg-wine-900 text-white font-bold uppercase tracking-widest text-sm rounded-sm">
-                        Accéder à la Boutique
-                    </Link>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-8 flex flex-col items-center gap-6 md:hidden"
+                >
+                    <Link href="/" onClick={closeMenu} className="text-wine-900 font-serif text-xl">Accueil</Link>
+                    <Link href="/nos-vins" onClick={closeMenu} className="text-wine-900 font-serif text-xl">Nos Vins</Link>
+                    <Link href="/visite" onClick={closeMenu} className="text-wine-900 font-serif text-xl">Visite</Link>
+                    <Link href="/contact" onClick={closeMenu} className="text-wine-900 font-serif text-xl">Contact</Link>
+                </motion.div>
             )}
-        </nav>
+        </motion.nav>
     );
 }

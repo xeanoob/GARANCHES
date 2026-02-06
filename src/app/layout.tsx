@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Configuration des polices
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
@@ -30,10 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${playfair.variable} ${lato.variable}`}>
-      <body className="font-sans antialiased bg-[#FAFAFA] text-gray-800">
+      <body className="font-sans antialiased bg-paper text-gray-800 flex flex-col min-h-screen">
         <Navbar />
-        {children}
-        <Footer /> {/* <--- C'est ici que je l'ai ajouté */}
+        {/* Le main prend tout l'espace disponible pour pousser le footer en bas */}
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

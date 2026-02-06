@@ -4,51 +4,35 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-stone-900 text-white pt-12 pb-6 mt-auto">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <footer className="bg-wine-900 text-white/80 py-16 px-6 border-t border-white/10">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
 
-                    {/* Colonne 1 : Le Domaine */}
-                    <div>
-                        <h3 className="font-serif text-lg font-bold mb-4 uppercase tracking-wider text-amber-500">Domaine de Garanches</h3>
-                        <p className="text-stone-300 text-sm leading-relaxed">
-                            Vignoble familial produisant des vins d'exception.<br />
-                            Brouilly, Bourgogne Blanc, Rosé & Pétillant.
-                        </p>
-                    </div>
-
-                    {/* Colonne 2 : Contact Rapide */}
-                    <div>
-                        <h3 className="font-serif text-lg font-bold mb-4 uppercase tracking-wider text-amber-500">Nous trouver</h3>
-                        <p className="text-stone-300 text-sm leading-relaxed">
-                            145 Rue des Garanches<br />
-                            71570 La Chapelle-de-Guinchay<br />
-                            France
-                        </p>
-                        <p className="mt-4">
-                            <a href="mailto:contact@domainedegaranches.com" className="text-stone-300 hover:text-white underline">
-                                contact@domainedegaranches.com
-                            </a>
-                        </p>
-                    </div>
-
-                    {/* Colonne 3 : Liens */}
-                    <div>
-                        <h3 className="font-serif text-lg font-bold mb-4 uppercase tracking-wider text-amber-500">Navigation</h3>
-                        <ul className="space-y-2 text-sm text-stone-300">
-                            <li><Link href="/" className="hover:text-white">Accueil</Link></li>
-                            <li><Link href="/nos-vins" className="hover:text-white">Nos Vins</Link></li>
-                            <li><Link href="/visite" className="hover:text-white">Tourisme</Link></li>
-                            <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="border-t border-stone-800 mt-10 pt-6 text-center">
-                    <p className="text-stone-500 text-xs">
-                        &copy; {currentYear} Domaine de Garanches. L'abus d'alcool est dangereux pour la santé, à consommer avec modération.
+                {/* Colonne 1 : Adresse */}
+                <div>
+                    <h4 className="font-serif text-2xl text-white mb-6">Domaine de Garanches</h4>
+                    <p className="font-light text-sm leading-loose text-gray-300">
+                        345 chemin de Garanches<br />
+                        69460 Odenas — France<br />
+                        +33 4 74 03 44 80
                     </p>
                 </div>
+
+                {/* Colonne 2 : Navigation */}
+                <div className="flex flex-col gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
+                    <Link href="/notre-histoire" className="hover:text-gold-500 transition-colors">Le Domaine</Link>
+                    <Link href="/nos-vins" className="hover:text-gold-500 transition-colors">Nos Vins</Link>
+                    <Link href="/visite" className="hover:text-gold-500 transition-colors">Visite & Dégustation</Link>
+                </div>
+
+                {/* Colonne 3 : Légal */}
+                <div className="flex flex-col gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
+                    <Link href="/contact" className="hover:text-gold-500 transition-colors">Contact</Link>
+                    <Link href="/mentions-legales" className="hover:text-gold-500 transition-colors">Mentions légales</Link>
+                </div>
+            </div>
+
+            <div className="mt-16 pt-8 border-t border-white/10 text-center text-xs text-gray-500 font-light">
+                <p>&copy; {currentYear} Domaine de Garanches. L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
             </div>
         </footer>
     );
