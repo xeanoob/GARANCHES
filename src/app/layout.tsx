@@ -10,7 +10,6 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import AgeGate from "@/components/AgeGate";
 import CustomCursor from "@/components/CustomCursor";
-import Preloader from "@/components/Preloader";
 
 // Configuration des polices
 const playfair = Playfair_Display({
@@ -42,7 +41,6 @@ export default function RootLayout({
 
         {/* --- FONCTIONNALITÉS UX --- */}
         <SmoothScroll />      {/* Défilement fluide */}
-        <Preloader />         {/* Intro cinéma */}
         <AgeGate />           {/* Vérification âge */}
         <CustomCursor />      {/* Curseur personnalisé (Desktop) */}
 

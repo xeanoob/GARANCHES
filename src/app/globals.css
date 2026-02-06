@@ -44,7 +44,7 @@ button img {
 /* Le lien lui-même reste cliquable */
 a,
 button {
-  pointer-events: auto;
+  pointer-events: auto !important;
   cursor: none;
   /* On garde le curseur invisible */
 }
@@ -59,7 +59,7 @@ select {
   -webkit-user-select: text;
   cursor: text;
   /* Affiche le petit trait vertical quand on écrit */
-  pointer-events: auto;
+  pointer-events: auto !important;
 }
 
 /* --- TEXTURE GRAIN (Fond papier) --- */

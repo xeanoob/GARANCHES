@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -13,6 +13,20 @@ export default function Navbar() {
     const { scrollY } = useScroll();
 
     const isHome = pathname === "/";
+
+    const [isNavVisible, setIsNavVisible] = useState(!isHome);
+
+    useEffect(() => {
+        if (isHome) {
+            const timer = setTimeout(() => {
+                setIsNavVisible(true);
+            }, 2300);
+            return () => clearTimeout(timer);
+        } else {
+            setIsNavVisible(true);
+        }
+    }, [isHome]);
+
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setIsScrolled(latest > 50);
@@ -29,9 +43,16 @@ export default function Navbar() {
 
     return (
         <motion.nav
-            className={`fixed w-full z-50 transition-all duration-500 ${isNavSolid ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{
+                opacity: isNavVisible ? 1 : 0,
+                y: isNavVisible ? 0 : -20
+            }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className={`fixed w-full z-50 transition-colors duration-500 ${isNavSolid ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
                 }`}
         >
+
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex justify-between items-center">
 
