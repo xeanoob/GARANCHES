@@ -21,16 +21,15 @@ export default function Navbar() {
     const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
 
-    // La barre est solide si on scroll OU si on n'est pas sur l'accueil
-    const isNavActive = isScrolled || !isHome;
+    // La barre est solide (fond blanc) si on scroll OU si on n'est pas sur l'accueil
+    const isNavSolid = isScrolled || !isHome;
 
-    // Couleur des textes selon l'état
-    const textColor = isNavActive ? "text-gray-800" : "text-white";
-    const hoverColor = "hover:text-gold-500";
+    // Couleur de base pour les éléments hors liens (Burger, Panier...)
+    const baseTextColor = isNavSolid ? "text-gray-800" : "text-white";
 
     return (
         <motion.nav
-            className={`fixed w-full z-50 transition-all duration-500 ${isNavActive ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
+            className={`fixed w-full z-50 transition-all duration-500 ${isNavSolid ? "bg-white/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-6"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6">
@@ -38,10 +37,10 @@ export default function Navbar() {
 
                     {/* --- LOGO --- */}
                     <Link href="/" className="flex items-center gap-3 group" onClick={closeMenu}>
-                        <div className={`relative transition-all duration-500 overflow-hidden rounded-full border border-gold-500/30 ${isNavActive ? "h-10 w-10" : "h-14 w-14"}`}>
+                        <div className={`relative transition-all duration-500 overflow-hidden rounded-full border border-gold-500/30 ${isNavSolid ? "h-10 w-10" : "h-14 w-14"}`}>
                             <Image src="/images/17_logo.png" alt="Logo" fill className="object-cover" />
                         </div>
-                        <span className={`font-serif font-bold uppercase tracking-widest transition-colors duration-300 ${isNavActive ? "text-wine-900 text-lg" : "text-white text-xl drop-shadow-md"
+                        <span className={`font-serif font-bold uppercase tracking-widest transition-colors duration-300 ${isNavSolid ? "text-wine-900 text-lg" : "text-white text-xl drop-shadow-md"
                             }`}>
                             Garanches
                         </span>
@@ -55,35 +54,49 @@ export default function Navbar() {
                             { name: 'Histoire', path: '/notre-histoire' },
                             { name: 'Visite', path: '/visite' },
                             { name: 'Contact', path: '/contact' },
-                        ].map((link) => (
-                            <Link
-                                key={link.path}
-                                href={link.path}
-                                className={`uppercase text-xs font-bold tracking-[0.15em] transition-colors ${hoverColor} ${pathname === link.path ? "text-gold-600" : textColor
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+                        ].map((link) => {
+                            const isActive = pathname === link.path;
+
+                            // LOGIQUE DE COULEUR CORRIGÉE :
+                            let linkColorClass = "";
+
+                            if (!isNavSolid) {
+                                // Cas 1 : Sur l'accueil transparent -> TOUT LE MONDE EN BLANC
+                                // L'actif a juste une petite bordure en dessous pour se distinguer
+                                linkColorClass = isActive ? "text-white border-b border-white" : "text-white/80 hover:text-white";
+                            } else {
+                                // Cas 2 : Sur fond blanc -> Actif en Rouge/Or, Inactif en Gris
+                                linkColorClass = isActive ? "text-red-900 font-bold" : "text-gray-600 hover:text-red-900";
+                            }
+
+                            return (
+                                <Link
+                                    key={link.path}
+                                    href={link.path}
+                                    className={`uppercase text-xs font-bold tracking-[0.15em] transition-all ${linkColorClass}`}
+                                >
+                                    {link.name}
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     {/* --- ACTION DROITE (PANIER + MOBILE) --- */}
                     <div className="flex items-center gap-6">
 
-                        {/* Icône Panier (Toujours visible) */}
-                        <Link href="/panier" className={`relative group ${textColor} ${hoverColor}`}>
+                        {/* Icône Panier */}
+                        <Link href="/panier" className={`relative group ${baseTextColor} hover:text-amber-500 transition-colors`}>
                             <span className="sr-only">Panier</span>
-                            {/* Icône Shopping Bag SVG */}
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                             </svg>
-                            {/* Petit badge optionnel si panier non vide */}
+                            {/* Badge (exemple) */}
                             <span className="absolute -top-1 -right-2 bg-red-900 text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">0</span>
                         </Link>
 
                         {/* Bouton Mobile Burger */}
                         <div className="md:hidden">
-                            <button onClick={toggleMenu} className={`p-1 font-bold text-xs uppercase tracking-widest ${textColor}`}>
+                            <button onClick={toggleMenu} className={`p-1 font-bold text-xs uppercase tracking-widest ${baseTextColor}`}>
                                 {isOpen ? "X" : "MENU"}
                             </button>
                         </div>
@@ -98,7 +111,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    className="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-8 flex flex-col items-center gap-6 md:hidden h-screen overflow-y-auto pb-20"
+                    className="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-8 flex flex-col items-center gap-6 md:hidden h-screen overflow-y-auto pb-40"
                 >
                     <Link href="/" onClick={closeMenu} className="text-wine-900 font-serif text-xl">Accueil</Link>
                     <Link href="/nos-vins" onClick={closeMenu} className="text-wine-900 font-serif text-xl">Nos Vins</Link>

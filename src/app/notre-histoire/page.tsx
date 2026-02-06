@@ -32,7 +32,7 @@ export default function HistoirePage() {
                     {/* Texte Historique */}
                     <div className="md:pl-10">
                         <h2 className="text-3xl font-serif text-wine-900 mb-6">Les Origines</h2>
-                        <p className="text-gray-600 font-light leading-relaxed mb-6 text-lg">
+                        <p className="first-letter:text-5xl first-letter:font-serif first-letter:text-wine-900 first-letter:float-left first-letter:mr-3 first-letter:font-bold leading-relaxed text-justify">
                             L'histoire du Domaine de Garanches plonge ses racines au cœur du XVIIIe siècle.
                             C'est en 1788, à la veille de la Révolution Française, que les premières pierres
                             de notre histoire viticole furent posées à Odenas.
@@ -66,7 +66,7 @@ export default function HistoirePage() {
                     <div className="grid grid-cols-3 gap-4 mt-12">
                         <img src="/images/34_slide001.jpg" className="h-48 w-full object-cover rounded-sm" alt="Chai" />
                         <img src="/images/11_image.jpg" className="h-48 w-full object-cover rounded-sm" alt="Vignes" />
-                        <img src="/images/7_image.jpg" className="h-48 w-full object-cover rounded-sm" alt="Vendanges" />
+                        <img src="/images/9_image.jpg" className="h-48 w-full object-cover rounded-sm" alt="Vendanges" />
                     </div>
                 </div>
             </section>
