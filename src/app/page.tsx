@@ -6,7 +6,6 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 import ParallaxImage from "@/components/ParallaxImage";
-import SocialProof from "@/components/SocialProof";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -175,7 +174,7 @@ export default function Home() {
               <ParallaxImage
                 src="/images/23_slide002.jpg"
                 alt="Grappe de raisin Gamay du Beaujolais sur cep de vigne"
-                className="h-full w-full rounded-2xl shadow-xl"
+                className="h-full w-full rounded-lg shadow-xl"
               />
             </div>
           </FadeIn>
@@ -264,7 +263,6 @@ export default function Home() {
       </section>
 
       {/* --- SECTION PREUVE SOCIALE (E-E-A-T) --- */}
-      <SocialProof />
 
     </main>
   );
