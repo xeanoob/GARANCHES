@@ -139,15 +139,34 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                {/* BOUTON BURGER (Mobile) */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden relative z-[101] w-10 h-10 flex flex-col justify-center items-end gap-1.5 group"
-                >
-                    <span className={`h-0.5 transition-all duration-300 ${useDarkText && !isOpen ? "bg-stone-900" : "bg-white"} ${isOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`} />
-                    <span className={`h-0.5 transition-all duration-300 ${useDarkText && !isOpen ? "bg-stone-900" : "bg-white"} ${isOpen ? "opacity-0" : "w-4 group-hover:w-6"}`} />
-                    <span className={`h-0.5 transition-all duration-300 ${useDarkText && !isOpen ? "bg-stone-900" : "bg-white"} ${isOpen ? "w-6 -rotate-45 -translate-y-2" : "w-6"}`} />
-                </button>
+                {/* CONTROLES MOBILE (Panier + Burger) */}
+                <div className="md:hidden flex items-center gap-5 z-[101]">
+                    {/* Panier Mobile (Visible en permanence) */}
+                    <Link
+                        href="/panier"
+                        className={`relative w-8 h-8 flex items-center justify-center transition-colors duration-300 ${useDarkText && !isOpen ? "text-stone-900" : "text-white"}`}
+                        onClick={() => setIsOpen(false)} // Ferme le menu si on clique sur le panier
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                        </svg>
+                        {totalItems > 0 && (
+                            <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-white">
+                                {totalItems}
+                            </span>
+                        )}
+                    </Link>
+
+                    {/* Button Burger */}
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="relative w-10 h-10 flex flex-col justify-center items-end gap-1.5 group"
+                    >
+                        <span className={`h-0.5 rounded-full transition-all duration-300 ${useDarkText && !isOpen ? "bg-stone-900" : "bg-white"} ${isOpen ? "w-6 rotate-45 translate-y-2 bg-white" : "w-6"}`} />
+                        <span className={`h-0.5 rounded-full transition-all duration-300 ${useDarkText && !isOpen ? "bg-stone-900" : "bg-white"} ${isOpen ? "opacity-0" : "w-4 group-hover:w-6"}`} />
+                        <span className={`h-0.5 rounded-full transition-all duration-300 ${useDarkText && !isOpen ? "bg-stone-900" : "bg-white"} ${isOpen ? "w-6 -rotate-45 -translate-y-2 bg-white" : "w-6"}`} />
+                    </button>
+                </div>
             </div>
 
             {/* MENU MOBILE OVERLAY */}

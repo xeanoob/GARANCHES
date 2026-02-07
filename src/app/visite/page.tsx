@@ -17,7 +17,7 @@ export default function VisitePage() {
                 <FadeIn direction="right">
                     <div>
                         <span className="text-amber-600 font-serif italic text-xl block mb-2">Œnotourisme</span>
-                        <h1 className="text-5xl md:text-6xl font-serif text-wine-900 mb-8 leading-tight">Venir au <br />Domaine</h1>
+                        <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mb-8 leading-tight">Venir au <br />Domaine</h1>
 
                         <div className="space-y-8 text-gray-600 font-light leading-relaxed">
                             <p className="text-lg">
@@ -25,7 +25,7 @@ export default function VisitePage() {
                                 Le domaine est situé au cœur du Beaujolais, au pied du Mont Brouilly.
                             </p>
 
-                            <div className="bg-white p-8 shadow-sm rounded-2xl border border-gray-100 relative overflow-hidden group hover:shadow-md transition-shadow">
+                            <div className="bg-white p-8 shadow-sm rounded-lg border border-gray-100 relative overflow-hidden group hover:shadow-md transition-shadow">
                                 <div className="absolute top-0 left-0 w-1 h-full bg-amber-500 group-hover:w-2 transition-all"></div>
                                 <h3 className="font-bold text-wine-900 uppercase tracking-widest text-sm mb-4">Accès</h3>
                                 <p className="text-sm leading-7">
@@ -80,7 +80,7 @@ export default function VisitePage() {
 
                 {/* Colonne Image / Carte */}
                 <FadeIn direction="left" delay={0.2}>
-                    <div className="relative h-[600px] w-full bg-gray-200 rounded-2xl shadow-2xl overflow-hidden group">
+                    <div className="relative h-[600px] w-full bg-gray-200 rounded-lg shadow-2xl overflow-hidden group">
                         <Image
                             src="/images/23_slide002.jpg"
                             alt="Entrée principale et vignoble du Domaine de Garanches à Odenas"

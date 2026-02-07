@@ -73,9 +73,10 @@ export default async function NosVinsPage() {
             />
 
             {/* --- EN-TÊTE DE PAGE --- */}
+            {/* --- EN-TÊTE DE PAGE --- */}
             <FadeIn direction="down" className="text-center px-6 mb-20">
                 <span className="text-gold-500 font-serif italic text-xl">La Cave</span>
-                <h1 className="text-5xl md:text-6xl font-serif text-wine-900 mt-4 mb-6">Nos Cuvées</h1>
+                <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mt-4 mb-6">Nos Cuvées</h1>
                 <p className="max-w-2xl mx-auto text-gray-600 font-light leading-relaxed">
                     Tous nos vins sont produits, vinifiés et mis en bouteille à la propriété.<br />
                     Expédition possible dans toute la France (cartons de 6 ou 12 bouteilles).
@@ -88,10 +89,10 @@ export default async function NosVinsPage() {
 
                     {wines.map((wine: any, index: number) => (
                         <FadeIn key={wine.id} delay={index * 0.1}>
-                            <div className="group flex flex-col md:flex-row gap-8 items-center bg-white p-6 md:p-10 shadow-sm hover:shadow-md transition-shadow border border-gray-100 rounded-sm">
+                            <div className="group flex flex-col md:flex-row gap-8 items-center bg-white p-6 md:p-10 shadow-sm hover:shadow-md transition-shadow border border-gray-100 rounded-lg">
 
                                 {/* Image Bouteille */}
-                                <div className="w-full md:w-1/3 h-80 relative flex-shrink-0 bg-gray-50 rounded-sm overflow-hidden">
+                                <div className="w-full md:w-1/3 h-80 relative flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden">
                                     <div className="absolute inset-0 flex items-center justify-center p-4">
                                         <Image
                                             src={wine.image || "/images/36_brouilly-h.jpg"} // Image par défaut si manquante

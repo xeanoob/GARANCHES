@@ -42,7 +42,7 @@ export default function HistoirePage() {
             {/* --- EN-TÊTE --- */}
             <FadeIn direction="down" className="text-center px-6 mb-20">
                 <span className="text-gold-500 font-serif italic text-xl">Depuis 1788</span>
-                <h1 className="text-5xl md:text-6xl font-serif text-wine-900 mt-4 mb-8">Une Histoire de Famille</h1>
+                <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mt-4 mb-8">Une Histoire de Famille</h1>
                 <div className="w-24 h-1 bg-wine-900 mx-auto opacity-20"></div>
             </FadeIn>
 
@@ -51,7 +51,7 @@ export default function HistoirePage() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Image Manuscrit */}
                     <FadeIn direction="right">
-                        <div className="relative h-[500px] w-full bg-gray-100 rounded-sm overflow-hidden shadow-lg transform md:-rotate-1 transition-transform hover:rotate-0 duration-700">
+                        <div className="relative h-[500px] w-full bg-gray-100 rounded-lg overflow-hidden shadow-lg transform md:-rotate-1 transition-transform hover:rotate-0 duration-700">
                             <img
                                 src="/images/10_slide003.jpg"
                                 alt="Vieux manuscrits et archives familiales du Domaine de Garanches (1788)"
@@ -96,9 +96,9 @@ export default function HistoirePage() {
 
                     {/* Galerie Photo rapide */}
                     <div className="grid grid-cols-3 gap-4 mt-12">
-                        <img src="/images/34_slide001.jpg" className="h-48 w-full object-cover rounded-sm hover:scale-105 transition-transform duration-500" alt="Chai de vieillissement et fûts de chêne" />
-                        <img src="/images/11_image.jpg" className="h-48 w-full object-cover rounded-sm hover:scale-105 transition-transform duration-500" alt="Vignes de Gamay au pied du Mont Brouilly" />
-                        <img src="/images/9_image.jpg" className="h-48 w-full object-cover rounded-sm hover:scale-105 transition-transform duration-500" alt="Vendanges manuelles au Domaine de Garanches" />
+                        <img src="/images/34_slide001.jpg" className="h-48 w-full object-cover rounded-lg hover:scale-105 transition-transform duration-500" alt="Chai de vieillissement et fûts de chêne" />
+                        <img src="/images/11_image.jpg" className="h-48 w-full object-cover rounded-lg hover:scale-105 transition-transform duration-500" alt="Vignes de Gamay au pied du Mont Brouilly" />
+                        <img src="/images/9_image.jpg" className="h-48 w-full object-cover rounded-lg hover:scale-105 transition-transform duration-500" alt="Vendanges manuelles au Domaine de Garanches" />
                     </div>
                 </FadeIn>
             </section>
@@ -114,7 +114,7 @@ export default function HistoirePage() {
 
                     {/* Portrait 1 */}
                     <FadeIn delay={0.1} className="text-center group">
-                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/1_image.jpg" alt="Le Vigneron" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Michel Stagnara</h3>
@@ -123,7 +123,7 @@ export default function HistoirePage() {
 
                     {/* Portrait 2 */}
                     <FadeIn delay={0.2} className="text-center group">
-                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/22_image.jpg" alt="La Vigneronne" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Isabelle Stagnara</h3>
@@ -132,7 +132,7 @@ export default function HistoirePage() {
 
                     {/* Portrait 3 */}
                     <FadeIn delay={0.3} className="text-center group">
-                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/26_image.jpg" alt="La Relève" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Ambroise Stagnara</h3>
@@ -143,7 +143,7 @@ export default function HistoirePage() {
 
                     {/* Portrait 4 */}
                     <FadeIn delay={0.1} className="text-center group">
-                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/3_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Membre de l'équipe</h3>
@@ -152,7 +152,7 @@ export default function HistoirePage() {
 
                     {/* Portrait 5 */}
                     <FadeIn delay={0.2} className="text-center group">
-                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/4_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Laeticia Stagnara</h3>
@@ -161,7 +161,7 @@ export default function HistoirePage() {
 
                     {/* Portrait 6 */}
                     <FadeIn delay={0.3} className="text-center group">
-                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/15_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Tancrède Stagnara</h3>
@@ -170,7 +170,7 @@ export default function HistoirePage() {
 
                     {/* Portrait 7 */}
                     <FadeIn delay={0.4} className="text-center group">
-                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/18_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="text-xl font-serif text-wine-900">Membre de l'équipe</h3>

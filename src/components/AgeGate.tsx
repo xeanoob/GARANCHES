@@ -49,6 +49,9 @@ export default function AgeGate({ initialShow }: AgeGateProps) {
                     exit={{ opacity: 0, transition: { duration: 0.8 } }}
                     // Z-INDEX 2000 = Tout en haut
                     className="fixed inset-0 z-[2000] flex items-center justify-center bg-[#1c1917] px-4"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="age-gate-title"
                 >
                     <div className="text-center max-w-md relative z-10">
                         <div className="mb-8 relative h-24 w-24 mx-auto">
@@ -60,7 +63,7 @@ export default function AgeGate({ initialShow }: AgeGateProps) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.8 }}
                         >
-                            <h2 className="text-3xl font-serif text-white mb-2">Bienvenue au Domaine</h2>
+                            <h2 id="age-gate-title" className="text-3xl font-serif text-white mb-2">Bienvenue au Domaine</h2>
                             <div className="w-16 h-px bg-amber-500 mx-auto mb-6"></div>
 
                             <p className="text-stone-300 mb-10 font-light leading-relaxed">

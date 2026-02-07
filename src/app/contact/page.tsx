@@ -14,7 +14,7 @@ export default function ContactPage() {
             {/* --- EN-TÊTE --- */}
             <FadeIn direction="down" className="text-center px-6 mb-16">
                 <span className="text-amber-600 font-serif italic text-lg mb-2 block">À votre écoute</span>
-                <h1 className="text-5xl md:text-6xl font-serif text-wine-900 mb-6 font-medium">Nous Contacter</h1>
+                <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mb-6 font-medium">Nous Contacter</h1>
                 <p className="max-w-xl mx-auto text-gray-600 font-light text-lg">
                     Pour toute commande, demande de tarif ou pour organiser une visite au domaine,
                     n'hésitez pas à nous laisser un message.
@@ -25,7 +25,7 @@ export default function ContactPage() {
 
                 {/* --- COLONNE GAUCHE : COORDONNÉES --- */}
                 <FadeIn direction="right" delay={0.2}>
-                    <div className="bg-white p-10 border border-gray-100 shadow-lg rounded-3xl relative overflow-hidden group">
+                    <div className="bg-white p-10 border border-gray-100 shadow-lg rounded-lg relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
                         <h2 className="text-3xl font-serif text-wine-900 mb-10 relative z-10">Nos Coordonnées</h2>
 
@@ -78,7 +78,7 @@ export default function ContactPage() {
                             </div>
 
                             {/* Image d'ambiance (Cave / Fûts) */}
-                            <div className="mt-8 h-48 w-full relative overflow-hidden rounded-2xl shadow-md group-hover:shadow-lg transition-all">
+                            <div className="mt-8 h-48 w-full relative overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-all">
                                 <img
                                     src="/images/34_slide001.jpg"
                                     alt="Cave voûtée avec fûts de chêne au Domaine de Garanches"
@@ -91,25 +91,25 @@ export default function ContactPage() {
 
                 {/* --- COLONNE DROITE : FORMULAIRE --- */}
                 <FadeIn direction="left" delay={0.4}>
-                    <div className="bg-gradient-to-br from-wine-50 to-white p-10 rounded-3xl shadow-lg border border-white">
+                    <div className="bg-gradient-to-br from-wine-50 to-white p-10 rounded-lg shadow-lg border border-white">
                         <h2 className="text-3xl font-serif text-wine-900 mb-8">Envoyer un message</h2>
 
                         <form className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Nom</label>
-                                    <input type="text" className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm" placeholder="Votre nom" />
+                                    <input type="text" className="w-full bg-white border border-gray-100 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm" placeholder="Votre nom" />
                                 </div>
                                 <div>
                                     <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Email</label>
-                                    <input type="email" className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm" placeholder="votre@email.com" />
+                                    <input type="email" className="w-full bg-white border border-gray-100 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm" placeholder="votre@email.com" />
                                 </div>
                             </div>
 
                             <div>
                                 <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Sujet</label>
                                 <div className="relative">
-                                    <select className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm text-gray-700 appearance-none cursor-pointer">
+                                    <select className="w-full bg-white border border-gray-100 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm text-gray-700 appearance-none cursor-pointer">
                                         <option>Je souhaite passer commande</option>
                                         <option>Demande de tarifs d'expédition</option>
                                         <option>Visite / Dégustation</option>
@@ -125,7 +125,7 @@ export default function ContactPage() {
 
                             <div>
                                 <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold ml-2">Message</label>
-                                <textarea rows={5} className="w-full bg-white border border-gray-100 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm resize-none" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                                <textarea rows={5} className="w-full bg-white border border-gray-100 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-wine-100 focus:border-wine-300 transition-all shadow-sm resize-none" placeholder="Comment pouvons-nous vous aider ?"></textarea>
                             </div>
 
                             <button type="submit" className="w-full bg-wine-900 text-white py-4 uppercase tracking-widest text-xs font-bold hover:bg-amber-600 transition-colors rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300">

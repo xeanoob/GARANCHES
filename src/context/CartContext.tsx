@@ -24,6 +24,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
     const [cart, setCart] = useState<CartItem[]>([]);
+    const [isInitialized, setIsInitialized] = useState(false);
 
     // Charger le panier au démarrage
     useEffect(() => {
@@ -31,12 +32,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         if (savedCart) {
             setCart(JSON.parse(savedCart));
         }
+        setIsInitialized(true);
     }, []);
 
     // Sauvegarder à chaque modification
     useEffect(() => {
-        localStorage.setItem('garanches_cart', JSON.stringify(cart));
-    }, [cart]);
+        if (isInitialized) {
+            localStorage.setItem('garanches_cart', JSON.stringify(cart));
+        }
+    }, [cart, isInitialized]);
 
     const addToCart = (item: CartItem) => {
         setCart(prev => {
@@ -59,8 +63,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     const clearCart = () => setCart([]);
 
-    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-    const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const totalItems = isInitialized ? cart.reduce((acc, item) => acc + item.quantity, 0) : 0;
+    const totalPrice = isInitialized ? cart.reduce((acc, item) => acc + (item.price * item.quantity), 0) : 0;
 
     return (
         <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice }}>

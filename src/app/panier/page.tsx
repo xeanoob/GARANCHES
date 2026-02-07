@@ -15,15 +15,13 @@ export default function CartPage() {
     const handleCheckout = async () => {
         setIsLoading(true);
         try {
-            // Dans un vrai cas, on envoie le détail. Ici on simplifie pour la démo SumUp API.
-            // On prend le premier item comme "nom" pour l'exemple ou "Panier Garanches"
             const wineName = cart.length === 1 ? cart[0].name : "Panier Domaine de Garanches";
 
             const res = await fetch('/api/checkout', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    amount: totalPrice / 100, // On envoie en décimal (Euros)
+                    amount: totalPrice / 100,
                     currency: 'EUR',
                     wineName: wineName
                 })
@@ -34,20 +32,9 @@ export default function CartPage() {
             const { id } = await res.json();
 
             if (id.startsWith('mock-')) {
-                // Mode TEST : On redirige vers une page de succès locale
                 alert("Mode Simulation : Paiement validé (Aucun débit)");
-                // router.push('/success'); // Page à créer si besoin, ou on vide le panier
                 return;
             }
-
-            // Mode PROD : Redirection SumUp
-            // SumUp ne renvoie pas d'URL de redirection directe dans l'objet checkout par défaut sans configuration,
-            // mais l'intégration standard JS ou redirection dépend de l'implémentation.
-            // Simplification : On suppose que l'ID sert à rediriger ou on affiche un message.
-            // Note: L'API SumUp Checkout renvoie un ID. Pour payer, il faut rediriger l'utilisateur vers une URL de checkout.
-            // L'URL n'est pas toujours renvoyée directement, il faut souvent construire `https://api.sumup.com/v0.1/checkouts/${id}` ? 
-            // Vérification doc : C'est souvent une URL dans la réponse `checkout_id` n'est pas une URL.
-            // Sans doc précise sous la main, je simule une alerte pour l'utilisateur s'il n'a pas de compte.
 
             alert(`Paiement initialisé avec SumUp ID: ${id}. Redirection...`);
 
@@ -76,9 +63,12 @@ export default function CartPage() {
                 ) : (
                     <div className="grid md:grid-cols-3 gap-8">
                         <FadeIn className="md:col-span-2 space-y-6">
+
+                            {/* Liste des produits */}
+                            {/* Liste des produits */}
                             {cart.map((item) => (
-                                <div key={item.id} className="flex flex-col sm:flex-row items-center gap-6 bg-white p-6 shadow-sm border border-gray-100 rounded-2xl transition-shadow hover:shadow-md">
-                                    <div className="h-32 w-24 relative flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden">
+                                <div key={item.id} className="flex flex-col sm:flex-row items-center gap-6 bg-white p-6 shadow-sm border border-gray-100 rounded-lg transition-shadow hover:shadow-md">
+                                    <div className="h-32 w-24 relative flex-shrink-0 bg-gray-50 rounded-md overflow-hidden">
                                         <Image src={item.image} alt={item.name} fill className="object-contain mix-blend-multiply p-2" />
                                     </div>
 
@@ -88,7 +78,6 @@ export default function CartPage() {
                                     </div>
 
                                     <div className="flex flex-col items-center gap-3">
-                                        {/* Contrôle Quantité Style Moderne */}
                                         <div className="flex items-center border border-gray-200 rounded-full bg-white shadow-sm">
                                             <button
                                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -116,30 +105,54 @@ export default function CartPage() {
                         </FadeIn>
 
                         <FadeIn className="h-fit" delay={0.2}>
-                            <div className="bg-white p-8 shadow-sm border border-gray-100 rounded-2xl sticky top-32">
+                            <div className="bg-white p-8 shadow-sm border border-gray-100 rounded-lg sticky top-32">
                                 <h3 className="font-serif text-2xl text-wine-900 mb-6 border-b border-gray-100 pb-4">Résumé</h3>
+
                                 <div className="flex justify-between mb-2">
-                                    <span className="text-gray-600">Sous-total</span>
+                                    <span className="text-gray-600 font-serif">Sous-total</span>
                                     <span className="font-bold text-wine-900">{(totalPrice / 100).toFixed(2).replace('.', ',')} €</span>
                                 </div>
-                                <div className="flex justify-between mb-8">
-                                    <span className="text-gray-600">Livraison</span>
-                                    <span className="text-sm text-gray-400 italic">Calculé après</span>
+                                <div className="flex justify-between mb-6">
+                                    <span className="text-gray-600 font-serif">Livraison</span>
+                                    <span className="text-sm text-gray-400 italic">Calculée à l'étape suivante</span>
                                 </div>
 
-                                <div className="flex justify-between mb-8 border-t border-gray-100 pt-4">
-                                    <span className="font-bold text-lg text-wine-900">Total</span>
-                                    <span className="font-bold text-2xl text-gold-500">{(totalPrice / 100).toFixed(2).replace('.', ',')} €</span>
+                                <div className="flex justify-between mb-8 border-t border-gray-100 pt-6">
+                                    <span className="font-bold text-xl text-wine-900">Total</span>
+                                    <span className="font-bold text-3xl text-wine-900">{(totalPrice / 100).toFixed(2).replace('.', ',')} €</span>
                                 </div>
 
                                 <button
                                     onClick={handleCheckout}
                                     disabled={isLoading}
-                                    className="w-full py-4 bg-wine-900 text-white uppercase font-bold tracking-widest hover:bg-wine-800 transition-all rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full py-4 bg-wine-900 text-white uppercase font-bold tracking-widest hover:bg-wine-800 transition-all rounded-full shadow-md hover:shadow-lg transform active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed mb-4"
                                 >
-                                    {isLoading ? "Chargement..." : "Commander"}
+                                    {isLoading ? "Chargement..." : "Valider mon panier"}
                                 </button>
-                                <p className="text-center text-xs text-gray-400 mt-4">Paiement 100% sécurisé</p>
+
+                                {/* LOGIQUE MINIMALISTE "OPTIMISATION CARTON" */}
+                                {(() => {
+                                    const total = cart.reduce((acc, i) => acc + i.quantity, 0);
+                                    const reste = total % 6;
+                                    const manquant = 6 - reste;
+
+                                    if (total > 0 && reste !== 0) {
+                                        return (
+                                            <div className="text-center mt-3">
+                                                <p className="text-[11px] text-stone-500 italic leading-tight">
+                                                    Pour un transport optimal (carton de 6),<br />
+                                                    il vous manque <span className="font-semibold text-wine-800">{manquant} bouteille{manquant > 1 ? 's' : ''}</span>.
+                                                </p>
+                                            </div>
+                                        );
+                                    }
+                                    return null;
+                                })()}
+
+                                <p className="text-center text-[10px] text-gray-400 mt-6 flex justify-center items-center gap-2">
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                                    Paiement sécurisé par SumUp
+                                </p>
                             </div>
                         </FadeIn>
                     </div>

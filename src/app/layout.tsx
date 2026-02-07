@@ -9,7 +9,8 @@ import AgeGate from "@/components/AgeGate";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
-import { CartProvider } from "@/context/CartContext"; // 1. On ajoute l'import
+import { CartProvider } from "@/context/CartContext";
+import CookieConsent from "@/components/CookieConsent"; // Linter fix: Import CookieConsent
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -165,6 +166,8 @@ export default async function RootLayout({
         <CartProvider>
           <CustomCursor />
           <AgeGate initialShow={!hasConfirmed} />
+          {/* 3. Bandeau de Cookies (RGPD) */}
+          <CookieConsent />
           <SmoothScroll />
           <Navbar />
           {children}
@@ -172,8 +175,11 @@ export default async function RootLayout({
           <ScrollToTop />
         </CartProvider>
 
-        {/* Le SDK SumUp est déjà là, c'est parfait */}
-        <script src="https://gateway.sumup.com/gateway/ecom/card/v1.0/sdk.js"></script>
+        {/* Le SDK SumUp avec optimisation Next.js */}
+        <Script
+          src="https://gateway.sumup.com/gateway/ecom/card/v1.0/sdk.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
