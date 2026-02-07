@@ -47,7 +47,7 @@ export default function VisitePage() {
                                         Adresse
                                     </h3>
                                     <p className="text-sm">
-                                        145 Rue des Garanches<br />
+                                        345 chemin de Garanches<br />
                                         69460 Odenas<br />
                                         France
                                     </p>

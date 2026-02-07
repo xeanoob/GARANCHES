@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
+import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
     title: "Contact & Accès | Domaine de Garanches",
@@ -139,6 +140,10 @@ export default function ContactPage() {
                 </FadeIn>
 
             </div>
-        </main>
+
+            {/* --- FAQ  --- */}
+            <FAQ />
+
+        </main >
     );
 }

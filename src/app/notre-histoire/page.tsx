@@ -7,8 +7,37 @@ export const metadata: Metadata = {
 };
 
 export default function HistoirePage() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Domaine de Garanches",
+        "url": "https://domainedegaranches.com",
+        "logo": "https://domainedegaranches.com/images/17_logo.png",
+        "foundingDate": "1788",
+        "founders": [
+            { "@type": "Person", "name": "Famille Bender" }
+        ],
+        "employees": [
+            { "@type": "Person", "name": "Michel Stagnara", "jobTitle": "Les Projets" },
+            { "@type": "Person", "name": "Isabelle Stagnara", "jobTitle": "La Gestion Quotidienne" },
+            { "@type": "Person", "name": "Ambroise Stagnara", "jobTitle": "Nouvelle Génération" }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "345 chemin de Garanches",
+            "addressLocality": "Odenas",
+            "postalCode": "69460",
+            "addressCountry": "FR"
+        },
+        "description": "Domaine viticole historique à Odenas depuis 1788, produisant des vins de Brouilly et Côte de Brouilly."
+    };
+
     return (
         <main className="min-h-screen bg-paper pt-32 pb-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
 
             {/* --- EN-TÊTE --- */}
             <FadeIn direction="down" className="text-center px-6 mb-20">

@@ -38,8 +38,39 @@ async function getWines() {
 export default async function NosVinsPage() {
     const wines = await getWines();
 
+    // --- GEO & SEO : Données structurées pour la liste des produits ---
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": wines.map((wine: any, index: number) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Product",
+                "name": wine.name,
+                "description": wine.description,
+                "image": wine.image ? `https://domainedegaranches.com${wine.image}` : "https://domainedegaranches.com/images/36_brouilly-h.jpg",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "Domaine de Garanches"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "EUR",
+                    "price": (wine.price / 100).toFixed(2),
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://domainedegaranches.com/nos-vins"
+                }
+            }
+        }))
+    };
+
     return (
         <main className="min-h-screen bg-paper pt-32 pb-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
 
             {/* --- EN-TÊTE DE PAGE --- */}
             <FadeIn direction="down" className="text-center px-6 mb-20">

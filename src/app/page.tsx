@@ -1,6 +1,4 @@
 "use client";
-// Homepage uses 'use client' so it relies on RootLayout metadata. 
-// No changes needed here for metadata as RootLayout covers the homepage case.
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -8,10 +6,10 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 import ParallaxImage from "@/components/ParallaxImage";
+import SocialProof from "@/components/SocialProof";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  // On utilise un état pour savoir si la fenêtre est montée (pour éviter les bugs de calcul serveur)
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -19,7 +17,6 @@ export default function Home() {
     document.body.style.overflow = "hidden";
     window.scrollTo(0, 0);
 
-    // Fonction pour lancer l'animation et marquer comme "vue"
     const startAnimation = (delay = 2000) => {
       const timer = setTimeout(() => {
         setIsLoading(false);
@@ -30,24 +27,19 @@ export default function Home() {
       return () => clearTimeout(timer);
     };
 
-    // 1. A-t-on déjà vu l'intro dans cette session ? (Navigation interne)
     const hasPlayedIntro = sessionStorage.getItem("intro-played");
 
     if (hasPlayedIntro) {
-      // OUI -> On affiche direct sans animation
       setIsLoading(false);
       document.body.style.overflow = "unset";
       return;
     }
 
-    // 2. Sinon, vérification de l'âge (Premier chargement)
     const hasConfirmed = localStorage.getItem("age-confirmed");
 
     if (hasConfirmed) {
-      // Déjà majeur -> Animation classique
       startAnimation();
     } else {
-      // Pas encore majeur -> On attend le AgeGate
       const handleAgeConfirmed = () => {
         startAnimation(500);
       };
@@ -60,28 +52,24 @@ export default function Home() {
     }
   }, []);
 
-  // Variantes pour contrôler l'animation précise du titre
-  // Variantes pour contrôler l'animation précise du titre
   const titleVariants = {
     loading: {
-      color: "#7f1d1d", // Rouge vin
-      scale: 1.1,       // Un peu plus gros (ajusté)
-      y: 0,             // Reste centré !
+      color: "#7f1d1d",
+      scale: 1.1,
+      y: 0,
       opacity: 1
     },
     loaded: {
-      color: "#ffffff", // Blanc pur
-      scale: 1,         // Taille normale
-      y: 0,             // Place d'origine
+      color: "#ffffff",
+      scale: 1,
+      y: 0,
       opacity: 1
     }
   };
 
-
   return (
     <main className="min-h-screen text-gray-800 font-sans selection:bg-red-900 selection:text-white">
 
-      {/* --- FOND BLANC (Cache le fond sombre, disparaît en fondu) --- */}
       <AnimatePresence>
         {isLoading && (
           <motion.div
@@ -96,26 +84,17 @@ export default function Home() {
 
       {/* --- SECTION HÉROS --- */}
       <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
-
-        {/* Image de fond (Apparaît sous le blanc) */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/34_slide001.jpg"
-            // SEO OPTIMISÉ : Description géographique et contextuelle
             alt="Vignes du Domaine de Garanches s'étendant au pied du Mont Brouilly à Odenas"
             fill
-            className="object-cover brightness-50"
+            className="object-cover brightness-75"
             priority
           />
         </div>
 
-        {/* Contenu textuel - Ajustement du padding pour remonter le tout */}
         <div className="relative text-center px-4 max-w-7xl mx-auto flex flex-col items-center pt-20 md:pt-24">
-
-
-
-          {/* --- LE TITRE UNIQUE --- */}
-          {/* Il est toujours 'relative'. On change juste son Y et sa COULEUR via Framer. */}
           {mounted && (
             <motion.h1
               initial="loading"
@@ -123,21 +102,18 @@ export default function Home() {
               variants={titleVariants}
               transition={{
                 duration: 1.5,
-                ease: [0.22, 1, 0.36, 1] // Courbe "Luxe" très fluide
+                ease: [0.22, 1, 0.36, 1]
               }}
               className={`font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight text-center relative ${isLoading ? "z-[120]" : "z-[70]"}`}
-
             >
               Domaine de <br />
               <span className="italic">Garanches</span>
             </motion.h1>
           )}
 
-          {/* Sous-titre : Déplacé sous le titre pour un meilleur rendu */}
           <motion.div
             animate={{ opacity: isLoading ? 0 : 1 }}
-            transition={{ duration: 1, delay: 1.6 }} // Apparaît APRÈS que le fond blanc soit parti
-
+            transition={{ duration: 1, delay: 1.6 }}
             className="mb-8 mt-4"
           >
             <span className="uppercase tracking-[0.3em] text-[10px] md:text-sm text-amber-400 font-bold block">
@@ -145,11 +121,9 @@ export default function Home() {
             </span>
           </motion.div>
 
-          {/* Reste du contenu : On le cache aussi avec l'opacité pour ne pas gêner le mouvement */}
           <motion.div
             animate={{ opacity: isLoading ? 0 : 1 }}
             transition={{ duration: 1, delay: 1.9 }}
-
             className="mt-4 flex flex-col items-center"
           >
             <div className="w-16 h-0.5 md:w-24 md:h-1 bg-amber-500 mb-6"></div>
@@ -173,7 +147,6 @@ export default function Home() {
               </Link>
             </div>
           </motion.div>
-
         </div>
       </section>
 
@@ -197,7 +170,6 @@ export default function Home() {
             </div>
           </FadeIn>
 
-          {/* Image Parallaxe Manquante */}
           <FadeIn direction="left" delay={0.2}>
             <div className="h-[500px] w-full relative">
               <ParallaxImage
@@ -221,15 +193,12 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-
-            {/* Produit 1 : Brouilly */}
             <FadeIn delay={0.1} className="group cursor-pointer">
               <Link href="/nos-vins">
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden mb-8 bg-gray-50 flex items-center justify-center p-8">
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors z-10 duration-500"></div>
                   <Image
                     src="/images/36_brouilly-h.jpg"
-                    // SEO OPTIMISÉ : Nom complet du produit
                     alt="Bouteille de vin rouge Brouilly Cru du Beaujolais - Domaine de Garanches"
                     fill
                     className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
@@ -243,14 +212,12 @@ export default function Home() {
               </Link>
             </FadeIn>
 
-            {/* Produit 2 : Bourgogne Blanc */}
             <FadeIn delay={0.3} className="group cursor-pointer md:-mt-12">
               <Link href="/nos-vins">
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden mb-8 bg-gray-50 flex items-center justify-center p-8 shadow-lg border border-gray-100">
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors z-10 duration-500"></div>
                   <Image
                     src="/images/37_bourgogne-blanc-h.jpg"
-                    // SEO OPTIMISÉ
                     alt="Bouteille de Bourgogne Blanc Chardonnay - Domaine de Garanches"
                     fill
                     className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
@@ -265,14 +232,12 @@ export default function Home() {
               </Link>
             </FadeIn>
 
-            {/* Produit 3 : Pétillant */}
             <FadeIn delay={0.5} className="group cursor-pointer">
               <Link href="/nos-vins">
                 <div className="relative h-[400px] md:h-[500px] overflow-hidden mb-8 bg-gray-50 flex items-center justify-center p-8">
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors z-10 duration-500"></div>
                   <Image
                     src="/images/32_petillan-h.jpg"
-                    // SEO OPTIMISÉ
                     alt="Vin Pétillant Rosé Méthode Traditionnelle - Domaine de Garanches"
                     fill
                     className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
@@ -285,7 +250,6 @@ export default function Home() {
                 </div>
               </Link>
             </FadeIn>
-
           </div>
 
           <div className="mt-16 md:mt-20 text-center">
@@ -299,7 +263,8 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* --- SECTION PREUVE SOCIALE (E-E-A-T) --- */}
+      <SocialProof />
 
     </main>
   );
