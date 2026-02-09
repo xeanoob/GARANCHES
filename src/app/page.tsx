@@ -16,6 +16,8 @@ export default function Home() {
     document.body.style.overflow = "hidden";
     window.scrollTo(0, 0);
 
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches;
+
     const startAnimation = (delay = 2000) => {
       const timer = setTimeout(() => {
         setIsLoading(false);
@@ -28,7 +30,7 @@ export default function Home() {
 
     const hasPlayedIntro = sessionStorage.getItem("intro-played");
 
-    if (hasPlayedIntro) {
+    if (hasPlayedIntro || isPWA) {
       setIsLoading(false);
       document.body.style.overflow = "unset";
       return;
@@ -45,8 +47,14 @@ export default function Home() {
 
       window.addEventListener("age-gate-confirmed", handleAgeConfirmed);
 
+      const safetyTimeout = setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.overflow = "unset";
+      }, 5000);
+
       return () => {
         window.removeEventListener("age-gate-confirmed", handleAgeConfirmed);
+        clearTimeout(safetyTimeout);
       };
     }
   }, []);
