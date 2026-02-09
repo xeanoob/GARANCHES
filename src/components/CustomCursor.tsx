@@ -42,7 +42,7 @@ export default function CustomCursor() {
 
     return (
         <>
-            {/* Petit point central (suit instantanément) */}
+
             <motion.div
                 className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999] hidden md:block mix-blend-difference"
                 style={{
@@ -53,7 +53,7 @@ export default function CustomCursor() {
                 }}
             />
 
-            {/* Cercle extérieur (suit avec inertie et s'agrandit) */}
+
             <motion.div
                 className="fixed top-0 left-0 w-8 h-8 border border-white rounded-full pointer-events-none z-[9998] hidden md:block mix-blend-difference"
                 style={{

@@ -78,7 +78,7 @@ export default function Navbar() {
         >
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-                {/* LOGO */}
+
                 <Link href="/" className="relative z-[101] flex items-center gap-3 group">
                     <div className={`relative transition-all duration-500 ${scrolled ? "w-10 h-10" : "w-12 h-12"}`}>
                         <Image
@@ -94,7 +94,7 @@ export default function Navbar() {
                     </span>
                 </Link>
 
-                {/* MENU DESKTOP */}
+
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <Link
@@ -108,7 +108,7 @@ export default function Navbar() {
                         </Link>
                     ))}
 
-                    {/* LIEN PANIER (Desktop) */}
+
                     <Link
                         href="/panier"
                         className={`relative group flex items-center justify-center w-10 h-10 transition-colors duration-300 ${useDarkText ? "text-stone-900 hover:text-amber-600" : "text-white hover:text-amber-400"}`}
@@ -123,8 +123,8 @@ export default function Navbar() {
                         )}
                     </Link>
 
-                    {/* BOUTON RÉSERVATION (CTA) */}
-                    {/* BOUTON RÉSERVATION (CTA) */}
+
+
                     <Link
                         href="/nos-vins"
                         // Couleur conditionnelle :
@@ -139,11 +139,11 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                {/* CONTROLES MOBILE (Burger) */}
-                <div className="md:hidden flex items-center gap-5 z-[101]">
-                    {/* Le panier est géré par le MobileStickyCart en bas */}
 
-                    {/* Button Burger */}
+                <div className="md:hidden flex items-center gap-5 z-[101]">
+
+
+
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="relative w-10 h-10 flex flex-col justify-center items-end gap-1.5 group"
@@ -155,7 +155,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* MENU MOBILE OVERLAY */}
+
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -182,7 +182,7 @@ export default function Navbar() {
                                 </motion.div>
                             ))}
 
-                            {/* LIEN PANIER (Mobile) */}
+
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -201,7 +201,7 @@ export default function Navbar() {
                                 </Link>
                             </motion.div>
 
-                            {/* CTA Mobile */}
+
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}

@@ -47,7 +47,7 @@ export default function SocialProof() {
         <section className="py-20 bg-stone-100 border-t border-stone-200">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* --- TITRE --- */}
+
                 <FadeIn direction="up" className="text-center mb-16">
                     <span className="text-amber-600 font-serif italic text-lg mb-2 block">Excellence & Confiance</span>
                     <h2 className="text-4xl font-serif text-wine-900 mb-6">Reconnu par nos clients et nos pairs</h2>
@@ -68,7 +68,7 @@ export default function SocialProof() {
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {TESTIMONIALS.map((review, index) => (
                                     <div key={index} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative hover:-translate-y-1 transition-transform duration-300">
-                                        {/* Quote Icon */}
+
                                         <div className="absolute top-4 right-6 text-6xl text-wine-100 font-serif leading-none -z-0 opacity-50">”</div>
 
                                         <div className="relative z-10">

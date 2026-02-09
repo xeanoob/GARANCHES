@@ -115,7 +115,7 @@ export default function CookieConsent() {
                 )}
             </AnimatePresence>
 
-            {/* Settings Modal */}
+
             <AnimatePresence>
                 {showSettings && (
                     <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
@@ -132,7 +132,7 @@ export default function CookieConsent() {
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden"
                         >
-                            {/* Header */}
+
                             <div className="p-6 border-b border-stone-100 bg-stone-50/80 flex justify-between items-center sticky top-0 z-10 backdrop-blur-sm">
                                 <div>
                                     <h3 className="text-xl font-serif font-bold text-stone-900">Préférences des cookies</h3>
@@ -146,10 +146,10 @@ export default function CookieConsent() {
                                 </button>
                             </div>
 
-                            {/* Body */}
+
                             <div className="p-6 overflow-y-auto space-y-6 custom-scrollbar">
 
-                                {/* Essential */}
+
                                 <div className="flex items-start justify-between gap-4 p-4 rounded-xl bg-stone-50 border border-stone-100">
                                     <div className="space-y-1">
                                         <div className="flex items-center gap-2">
@@ -163,7 +163,7 @@ export default function CookieConsent() {
                                     <Switch checked={true} disabled />
                                 </div>
 
-                                {/* Analytics */}
+
                                 <div className="flex items-start justify-between gap-4 p-4 rounded-xl border border-stone-100 hover:border-stone-200 transition-colors">
                                     <div className="space-y-1">
                                         <span className="font-semibold text-stone-900 block">Analytiques</span>
@@ -177,7 +177,7 @@ export default function CookieConsent() {
                                     />
                                 </div>
 
-                                {/* Marketing */}
+
                                 <div className="flex items-start justify-between gap-4 p-4 rounded-xl border border-stone-100 hover:border-stone-200 transition-colors">
                                     <div className="space-y-1">
                                         <span className="font-semibold text-stone-900 block">Marketing</span>
@@ -193,7 +193,7 @@ export default function CookieConsent() {
 
                             </div>
 
-                            {/* Footer */}
+
                             <div className="p-6 border-t border-stone-100 bg-stone-50/80 flex justify-end gap-3 sticky bottom-0 z-10 backdrop-blur-sm">
                                 <button
                                     onClick={handleDeclineAll}
@@ -213,7 +213,7 @@ export default function CookieConsent() {
                 )}
             </AnimatePresence>
 
-            {/* Floating Reopen Button (visible only if answered) */}
+
             {!isVisible && !showSettings && (
                 <motion.button
                     initial={{ opacity: 0, scale: 0.8 }}

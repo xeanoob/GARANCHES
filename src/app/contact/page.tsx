@@ -11,7 +11,7 @@ export default function ContactPage() {
     return (
         <main className="min-h-screen bg-paper pt-32 pb-20">
 
-            {/* --- EN-TÊTE --- */}
+
             <FadeIn direction="down" className="text-center px-6 mb-16">
                 <span className="text-amber-600 font-serif italic text-lg mb-2 block">À votre écoute</span>
                 <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mb-6 font-medium">Nous Contacter</h1>
@@ -23,7 +23,7 @@ export default function ContactPage() {
 
             <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
 
-                {/* --- COLONNE GAUCHE : COORDONNÉES --- */}
+
                 <FadeIn direction="right" delay={0.2}>
                     <div className="bg-white p-10 border border-gray-100 shadow-lg rounded-lg relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-12 -mt-12 transition-transform group-hover:scale-150 duration-700"></div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            {/* Image d'ambiance (Cave / Fûts) */}
+
                             <div className="mt-8 h-48 w-full relative overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-all">
                                 <img
                                     src="/images/34_slide001.jpg"
@@ -89,7 +89,7 @@ export default function ContactPage() {
                     </div>
                 </FadeIn>
 
-                {/* --- COLONNE DROITE : FORMULAIRE --- */}
+
                 <FadeIn direction="left" delay={0.4}>
                     <div className="bg-gradient-to-br from-wine-50 to-white p-10 rounded-lg shadow-lg border border-white">
                         <h2 className="text-3xl font-serif text-wine-900 mb-8">Envoyer un message</h2>
@@ -141,7 +141,7 @@ export default function ContactPage() {
 
             </div>
 
-            {/* --- FAQ  --- */}
+
             <FAQ />
 
         </main >

@@ -64,8 +64,8 @@ export default function CartPage() {
                     <div className="grid md:grid-cols-3 gap-8">
                         <FadeIn className="md:col-span-2 space-y-6">
 
-                            {/* Liste des produits */}
-                            {/* Liste des produits */}
+
+
                             {cart.map((item) => (
                                 <div key={item.id} className="flex flex-col sm:flex-row items-center gap-6 bg-white p-6 shadow-sm border border-gray-100 rounded-lg transition-shadow hover:shadow-md">
                                     <div className="h-32 w-24 relative flex-shrink-0 bg-gray-50 rounded-md overflow-hidden">
@@ -130,7 +130,7 @@ export default function CartPage() {
                                     {isLoading ? "Chargement..." : "Valider mon panier"}
                                 </button>
 
-                                {/* LOGIQUE MINIMALISTE "OPTIMISATION CARTON" */}
+
                                 {(() => {
                                     const total = cart.reduce((acc, i) => acc + i.quantity, 0);
                                     const reste = total % 6;

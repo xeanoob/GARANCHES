@@ -39,17 +39,17 @@ export default function HistoirePage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            {/* --- EN-TÊTE --- */}
+
             <FadeIn direction="down" className="text-center px-6 mb-20">
                 <span className="text-gold-500 font-serif italic text-xl">Depuis 1788</span>
                 <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mt-4 mb-8">Une Histoire de Famille</h1>
                 <div className="w-24 h-1 bg-wine-900 mx-auto opacity-20"></div>
             </FadeIn>
 
-            {/* --- CHAPITRE 1 : LES RACINES --- */}
+
             <section className="max-w-6xl mx-auto px-6 mb-32">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    {/* Image Manuscrit */}
+
                     <FadeIn direction="right">
                         <div className="relative h-[500px] w-full bg-gray-100 rounded-lg overflow-hidden shadow-lg transform md:-rotate-1 transition-transform hover:rotate-0 duration-700">
                             <img
@@ -61,7 +61,7 @@ export default function HistoirePage() {
                         </div>
                     </FadeIn>
 
-                    {/* Texte Historique */}
+
                     <FadeIn direction="left" delay={0.2} className="md:pl-10">
                         <h2 className="text-3xl font-serif text-wine-900 mb-6">Les Origines</h2>
                         <p className="first-letter:text-5xl first-letter:font-serif first-letter:text-wine-900 first-letter:float-left first-letter:mr-3 first-letter:font-bold leading-relaxed text-justify">
@@ -79,7 +79,7 @@ export default function HistoirePage() {
                 </div>
             </section>
 
-            {/* --- CHAPITRE 2 : LE LIEU --- */}
+
             <section className="bg-white py-24 my-24 border-y border-gray-100">
                 <FadeIn direction="up" className="max-w-5xl mx-auto px-6 text-center">
                     <img
@@ -94,7 +94,7 @@ export default function HistoirePage() {
                         est le cœur battant de l'exploitation, abritant nos caves voûtées où vieillissent nos fûts de chêne.
                     </p>
 
-                    {/* Galerie Photo rapide */}
+
                     <div className="grid grid-cols-3 gap-4 mt-12">
                         <img src="/images/34_slide001.jpg" className="h-48 w-full object-cover rounded-lg hover:scale-105 transition-transform duration-500" alt="Chai de vieillissement et fûts de chêne" />
                         <img src="/images/11_image.jpg" className="h-48 w-full object-cover rounded-lg hover:scale-105 transition-transform duration-500" alt="Vignes de Gamay au pied du Mont Brouilly" />
@@ -103,7 +103,7 @@ export default function HistoirePage() {
                 </FadeIn>
             </section>
 
-            {/* --- CHAPITRE 3 : LES VISAGES --- */}
+
             <section className="max-w-7xl mx-auto px-6 mb-20">
                 <FadeIn direction="down" className="text-center mb-16">
                     <h2 className="text-4xl font-serif text-wine-900">Ceux qui font le vin</h2>
@@ -112,7 +112,7 @@ export default function HistoirePage() {
 
                 <div className="grid md:grid-cols-3 gap-10">
 
-                    {/* Portrait 1 */}
+
                     <FadeIn delay={0.1} className="text-center group">
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/1_image.jpg" alt="Le Vigneron" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -120,7 +120,7 @@ export default function HistoirePage() {
                         <h3 className="text-2xl font-serif text-wine-900">Michel Stagnara</h3>
                     </FadeIn>
 
-                    {/* Portrait 2 */}
+
                     <FadeIn delay={0.2} className="text-center group">
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/22_image.jpg" alt="La Vigneronne" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -128,7 +128,7 @@ export default function HistoirePage() {
                         <h3 className="text-2xl font-serif text-wine-900">Isabelle Stagnara</h3>
                     </FadeIn>
 
-                    {/* Portrait 3 */}
+
                     <FadeIn delay={0.3} className="text-center group">
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/26_image.jpg" alt="La Relève" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -136,9 +136,9 @@ export default function HistoirePage() {
                         <h3 className="text-2xl font-serif text-wine-900">Ambroise Stagnara</h3>
                     </FadeIn>
 
-                    {/* --- NOUVEAUX MEMBRES AJOUTÉS --- */}
 
-                    {/* Portrait 4 */}
+
+
                     <FadeIn delay={0.1} className="text-center group">
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/3_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -146,7 +146,7 @@ export default function HistoirePage() {
                         <h3 className="text-2xl font-serif text-wine-900">Membre de l'équipe</h3>
                     </FadeIn>
 
-                    {/* Portrait 5 */}
+
                     <FadeIn delay={0.2} className="text-center group">
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/4_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -154,7 +154,7 @@ export default function HistoirePage() {
                         <h3 className="text-2xl font-serif text-wine-900">Laeticia Stagnara</h3>
                     </FadeIn>
 
-                    {/* Portrait 6 */}
+
                     <FadeIn delay={0.3} className="text-center group">
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/15_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -162,7 +162,7 @@ export default function HistoirePage() {
                         <h3 className="text-2xl font-serif text-wine-900">Tancrède Stagnara</h3>
                     </FadeIn>
 
-                    {/* Portrait 7 */}
+
                     <FadeIn delay={0.4} className="text-center group">
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/18_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />

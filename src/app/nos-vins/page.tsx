@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AddToCartButton from "@/components/AddToCartButton"; // Import du nouveau bouton
+import AddToCartButton from "@/components/AddToCartButton";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
@@ -9,25 +9,20 @@ export const metadata: Metadata = {
     description: "Découvrez nos crus du Beaujolais : Brouilly, Bourgogne Blanc, Rosé et notre Méthode Traditionnelle.",
 };
 
-// 1. Données de secours (Fallback) basées sur ton code initial
-// Note : Les prix sont en centimes pour correspondre au format standard des APIs de paiement.
 import { PRODUCTS } from "@/data/products";
 
-// 1. Données de secours (Fallback) basées sur ton code initial
 const FALLBACK_WINES = PRODUCTS;
 
-// 2. Fonction pour récupérer les vins via ton API interne
 async function getWines() {
     try {
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
         const res = await fetch(`${baseUrl}/api/products`, {
-            next: { revalidate: 3600 } // Mise à jour du cache toutes les heures
+            next: { revalidate: 3600 }
         });
 
         if (!res.ok) return FALLBACK_WINES;
         const data = await res.json();
 
-        // On retourne les items de SumUp s'ils existent, sinon tes données par défaut
         return data.items && data.items.length > 0 ? data.items : FALLBACK_WINES;
     } catch (error) {
         console.error("Erreur API SumUp:", error);
@@ -38,7 +33,6 @@ async function getWines() {
 export default async function NosVinsPage() {
     const wines = await getWines();
 
-    // --- GEO & SEO : Données structurées pour la liste des produits ---
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
@@ -72,8 +66,6 @@ export default async function NosVinsPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            {/* --- EN-TÊTE DE PAGE --- */}
-            {/* --- EN-TÊTE DE PAGE --- */}
             <FadeIn direction="down" className="text-center px-6 mb-20">
                 <span className="text-gold-500 font-serif italic text-xl">La Cave</span>
                 <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mt-4 mb-6">Nos Cuvées</h1>
@@ -83,7 +75,6 @@ export default async function NosVinsPage() {
                 </p>
             </FadeIn>
 
-            {/* --- GRILLE DES VINS --- */}
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-20">
 
@@ -91,7 +82,6 @@ export default async function NosVinsPage() {
                         <FadeIn key={wine.id} delay={index * 0.1}>
                             <div className="group flex flex-col md:flex-row gap-4 md:gap-8 items-center bg-white p-4 md:p-10 shadow-sm hover:shadow-md transition-shadow border border-gray-100 rounded-lg">
 
-                                {/* Image Bouteille */}
                                 <div className="w-full md:w-1/3 h-64 md:h-80 relative flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden">
                                     <div className="absolute inset-0 flex items-center justify-center p-4">
                                         <Image
@@ -106,7 +96,6 @@ export default async function NosVinsPage() {
                                     </div>
                                 </div>
 
-                                {/* Texte & Détails */}
                                 <div className="w-full md:w-2/3 text-center md:text-left">
                                     <div className="flex flex-col md:flex-row justify-between items-center mb-2">
                                         <h2 className="text-3xl font-serif text-wine-900">{wine.name}</h2>
@@ -123,13 +112,11 @@ export default async function NosVinsPage() {
                                         {wine.description}
                                     </p>
 
-                                    {/* --- INFORMATIONS LÉGALES OBLIGATOIRES --- */}
                                     <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 text-xs text-gray-500 mb-6 font-light">
                                         {wine.volume && <span>{wine.volume}</span>}
                                         {wine.alcohol && <span className="border-l border-gray-300 pl-4">{wine.alcohol}</span>}
                                         {wine.price && wine.volume && (
                                             <span className="border-l border-gray-300 pl-4 text-gray-400 italic">
-                                                {/* Calcul du prix au litre approximatif (base 75cl généralement) */}
                                                 Soit {((wine.price / 100) / (parseFloat(wine.volume) === 1.5 ? 1.5 : 0.75)).toFixed(2).replace('.', ',')} €/L
                                             </span>
                                         )}
@@ -138,7 +125,6 @@ export default async function NosVinsPage() {
                                                 {wine.allergens}
                                             </span>
                                         )}
-                                        {/* Pictogramme Femme Enceinte (Interdit) - SVG Inline */}
                                         <span className="border-l border-gray-300 pl-3" title="Déconseillé aux femmes enceintes">
                                             <svg viewBox="0 0 64 64" className="w-5 h-5 opacity-60 fill-current text-gray-400">
                                                 <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" strokeWidth="3" />
@@ -149,7 +135,6 @@ export default async function NosVinsPage() {
                                         </span>
                                     </div>
 
-                                    {/* Tags (Accords mets-vins) */}
                                     <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-8">
                                         {wine.tags?.map((tag: string) => (
                                             <span key={tag} className="px-3 py-1 bg-wine-50 text-wine-800 text-xs rounded-full border border-wine-100">
@@ -158,7 +143,6 @@ export default async function NosVinsPage() {
                                         ))}
                                     </div>
 
-                                    {/* Nouveau bouton d'action interactif */}
                                     <AddToCartButton wine={wine} />
                                 </div>
                             </div>
@@ -168,7 +152,6 @@ export default async function NosVinsPage() {
                 </div>
             </div>
 
-            {/* --- BANDEAU BAS --- */}
             <FadeIn direction="up">
                 <div className="mt-32 py-16 bg-wine-900 text-white text-center px-4">
                     <h3 className="text-3xl font-serif mb-4">Une question sur un millésime ?</h3>
@@ -181,6 +164,6 @@ export default async function NosVinsPage() {
                 </div>
             </FadeIn>
 
-        </main>
+        </main >
     );
 }

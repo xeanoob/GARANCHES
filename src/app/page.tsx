@@ -81,7 +81,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* --- SECTION HÉROS --- */}
       <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -151,7 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION TERROIR & HISTOIRE --- */}
       <section className="py-20 md:py-32 bg-stone-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn direction="right">
@@ -183,7 +181,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION BOUTIQUE (NOS CUVÉES) --- */}
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12 md:mb-20">
@@ -264,7 +261,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION PREUVE SOCIALE (E-E-A-T) --- */}
+
 
     </main>
   );

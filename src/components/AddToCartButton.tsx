@@ -38,8 +38,8 @@ export default function AddToCartButton({ wine }: { wine: Wine }) {
 
     return (
         <div className="flex flex-row items-center justify-between md:justify-start gap-4 mt-6 w-full">
-            {/* Compteur de quantité */}
-            {/* Compteur de quantité */}
+
+
             <div className="flex items-center border border-wine-900 w-fit rounded-full overflow-hidden shrink-0">
                 <button
                     onClick={decrement}
@@ -58,7 +58,7 @@ export default function AddToCartButton({ wine }: { wine: Wine }) {
                 </button>
             </div>
 
-            {/* Bouton d'ajout */}
+
             <motion.button
                 onClick={handleAddToCart}
                 whileTap={{ scale: 0.95 }}

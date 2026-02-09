@@ -163,11 +163,11 @@ export default async function RootLayout({
 
         <div className="bg-noise opacity-20"></div>
 
-        {/* 2. On enveloppe tout le contenu avec le CartProvider */}
+
         <CartProvider>
           <CustomCursor />
           <AgeGate initialShow={!hasConfirmed} />
-          {/* 3. Bandeau de Cookies (RGPD) */}
+
           <CookieConsent />
           <SmoothScroll />
           <Navbar />
@@ -177,7 +177,7 @@ export default async function RootLayout({
           <MobileStickyCart />
         </CartProvider>
 
-        {/* Le SDK SumUp avec optimisation Next.js */}
+
         <Script
           src="https://gateway.sumup.com/gateway/ecom/card/v1.0/sdk.js"
           strategy="lazyOnload"

@@ -13,7 +13,7 @@ export default function VisitePage() {
         <main className="min-h-screen pt-32 pb-20 bg-stone-50">
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-                {/* Colonne Texte */}
+
                 <FadeIn direction="right">
                     <div>
                         <span className="text-amber-600 font-serif italic text-xl block mb-2">Œnotourisme</span>
@@ -78,7 +78,7 @@ export default function VisitePage() {
                     </div>
                 </FadeIn>
 
-                {/* Colonne Image / Carte */}
+
                 <FadeIn direction="left" delay={0.2}>
                     <div className="relative h-[600px] w-full bg-gray-200 rounded-lg shadow-2xl overflow-hidden group">
                         <Image
