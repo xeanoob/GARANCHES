@@ -42,6 +42,12 @@ button img {
 a,
 button {
   pointer-events: auto;
+  outline: none;
+}
+
+a:focus,
+button:focus {
+  outline: none;
 }
 
 input,
