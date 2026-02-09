@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 
 export default function Footer() {
@@ -19,8 +21,8 @@ export default function Footer() {
 
 
                 <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
-                    <Link href="/notre-histoire" className="hover:text-gold-500 transition-colors">Le Domaine</Link>
-                    <Link href="/nos-vins" className="hover:text-gold-500 transition-colors">Nos Vins</Link>
+                    <Link href="/notre-histoire" className="hover:text-gold-500 transition-colors">Notre Histoire</Link>
+                    <Link href="/nos-vins" className="hover:text-gold-500 transition-colors">Boutique</Link>
                     <Link href="/visite" className="hover:text-gold-500 transition-colors">Visite & Dégustation</Link>
                 </div>
 

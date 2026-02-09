@@ -9,7 +9,7 @@ import AgeGate from "@/components/AgeGate";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
-import { CartProvider } from "@/context/CartContext";
+import { Providers } from "./providers";
 import CookieConsent from "@/components/CookieConsent";
 import MobileStickyCart from "@/components/MobileStickyCart";
 
@@ -164,7 +164,7 @@ export default async function RootLayout({
         <div className="bg-noise opacity-20"></div>
 
 
-        <CartProvider>
+        <Providers>
           <CustomCursor />
           <AgeGate initialShow={!hasConfirmed} />
 
@@ -175,7 +175,7 @@ export default async function RootLayout({
           <Footer />
           <ScrollToTop />
           <MobileStickyCart />
-        </CartProvider>
+        </Providers>
 
 
         <Script
