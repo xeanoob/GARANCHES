@@ -114,7 +114,7 @@ export default async function NosVinsPage() {
                                             sizes="(max-width: 768px) 100vw, 33vw"
                                             loading="lazy"
                                             quality={80}
-                                            className="object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500 p-2 md:p-4 rotate-90"
+                                            className="object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500 p-2 md:p-4"
                                         />
                                     </div>
                                 </div>
