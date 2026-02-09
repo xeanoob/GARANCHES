@@ -1,21 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-import Lightbox from "@/components/Lightbox";
 
 export const metadata: Metadata = {
     title: "Visite & Accès | Domaine de Garanches",
     description: "Venez nous rendre visite à Odenas. Dégustation, vente directe et découverte du vignoble.",
 };
 
-const galleryImages = [
-    { src: "/images/23_slide002.jpg", alt: "Vignes du Domaine de Garanches" },
-    { src: "/images/34_slide001.jpg", alt: "Vue panoramique du vignoble" },
-    { src: "/images/1_image.jpg", alt: "Le vigneron Michel Stagnara" },
-    { src: "/images/22_image.jpg", alt: "La vigneronne Isabelle Stagnara" },
-    { src: "/images/26_image.jpg", alt: "La relève Ambroise Stagnara" },
-    { src: "/images/15_image.jpg", alt: "Le domaine" },
-];
 
 export default function VisitePage() {
     return (
@@ -103,18 +94,7 @@ export default function VisitePage() {
                 </FadeIn>
             </div>
 
-            <section className="max-w-7xl mx-auto px-6 mt-20">
-                <FadeIn direction="up">
-                    <div className="text-center mb-12">
-                        <span className="text-amber-600 font-serif italic text-xl block mb-2">Découvrez</span>
-                        <h2 className="text-3xl md:text-4xl font-serif text-wine-900">Notre Domaine en Images</h2>
-                    </div>
-                </FadeIn>
 
-                <FadeIn direction="up" delay={0.2}>
-                    <Lightbox images={galleryImages} />
-                </FadeIn>
-            </section>
         </main>
     );
 }
