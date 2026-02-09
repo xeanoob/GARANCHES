@@ -59,11 +59,34 @@ export default async function NosVinsPage() {
         }))
     };
 
+    const breadcrumbLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://domainedegaranches.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Nos Vins",
+                "item": "https://domainedegaranches.com/nos-vins"
+            }
+        ]
+    };
+
     return (
         <main className="min-h-screen bg-paper pt-32 pb-20">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
             />
 
             <FadeIn direction="down" className="text-center px-6 mb-20">
