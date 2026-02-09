@@ -37,7 +37,7 @@ export default function AddToCartButton({ wine }: { wine: Wine }) {
     const decrement = () => setQuantity(q => q > 1 ? q - 1 : 1);
 
     return (
-        <div className="flex flex-col md:flex-row gap-4 mt-6">
+        <div className="flex flex-row items-center justify-between md:justify-start gap-4 mt-6 w-full">
             {/* Compteur de quantité */}
             {/* Compteur de quantité */}
             <div className="flex items-center border border-wine-900 w-fit rounded-full overflow-hidden shrink-0">

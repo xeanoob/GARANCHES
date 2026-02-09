@@ -40,8 +40,13 @@ export default function FadeIn({
         <motion.div
             initial={getInitial()}
             whileInView={getTarget()}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: delay, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+                duration: 0.6,
+                delay: delay,
+                ease: [0.25, 0.1, 0.25, 1]
+            }}
+            style={{ willChange: "transform, opacity" }}
             className={className}
         >
             {children}

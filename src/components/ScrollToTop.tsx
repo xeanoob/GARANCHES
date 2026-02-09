@@ -30,11 +30,12 @@ export default function ScrollToTop() {
         <AnimatePresence>
             {isVisible && (
                 <motion.button
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-6 right-6 z-50 p-3 bg-stone-900/80 backdrop-blur-sm text-white rounded-full shadow-lg border border-white/20 hover:bg-amber-600 transition-colors md:hidden"
+                    className="fixed bottom-6 left-6 z-[80] p-3 rounded-full shadow-xl md:hidden bg-white text-wine-900 border-2 border-wine-900 hover:bg-wine-50"
                     aria-label="Retour en haut"
                 >
                     <svg

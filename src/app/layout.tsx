@@ -10,7 +10,8 @@ import SmoothScroll from "@/components/SmoothScroll";
 import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
 import { CartProvider } from "@/context/CartContext";
-import CookieConsent from "@/components/CookieConsent"; // Linter fix: Import CookieConsent
+import CookieConsent from "@/components/CookieConsent";
+import MobileStickyCart from "@/components/MobileStickyCart";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -173,6 +174,7 @@ export default async function RootLayout({
           {children}
           <Footer />
           <ScrollToTop />
+          <MobileStickyCart />
         </CartProvider>
 
         {/* Le SDK SumUp avec optimisation Next.js */}

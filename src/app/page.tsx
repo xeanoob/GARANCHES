@@ -88,8 +88,10 @@ export default function Home() {
             src="/images/34_slide001.jpg"
             alt="Vignes du Domaine de Garanches s'étendant au pied du Mont Brouilly à Odenas"
             fill
+            sizes="100vw"
             className="object-cover brightness-75"
             priority
+            quality={85}
           />
         </div>
 

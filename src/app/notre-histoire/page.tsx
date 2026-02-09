@@ -117,8 +117,7 @@ export default function HistoirePage() {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/1_image.jpg" alt="Le Vigneron" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-xl font-serif text-wine-900">Michel Stagnara</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Les Projets</p>
+                        <h3 className="text-2xl font-serif text-wine-900">Michel Stagnara</h3>
                     </FadeIn>
 
                     {/* Portrait 2 */}
@@ -126,8 +125,7 @@ export default function HistoirePage() {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/22_image.jpg" alt="La Vigneronne" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-xl font-serif text-wine-900">Isabelle Stagnara</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">La Gestion Quotidienne</p>
+                        <h3 className="text-2xl font-serif text-wine-900">Isabelle Stagnara</h3>
                     </FadeIn>
 
                     {/* Portrait 3 */}
@@ -135,8 +133,7 @@ export default function HistoirePage() {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/26_image.jpg" alt="La Relève" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-xl font-serif text-wine-900">Ambroise Stagnara</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Nouvelle Génération</p>
+                        <h3 className="text-2xl font-serif text-wine-900">Ambroise Stagnara</h3>
                     </FadeIn>
 
                     {/* --- NOUVEAUX MEMBRES AJOUTÉS --- */}
@@ -146,8 +143,7 @@ export default function HistoirePage() {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/3_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-xl font-serif text-wine-900">Membre de l'équipe</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
+                        <h3 className="text-2xl font-serif text-wine-900">Membre de l'équipe</h3>
                     </FadeIn>
 
                     {/* Portrait 5 */}
@@ -155,8 +151,7 @@ export default function HistoirePage() {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/4_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-xl font-serif text-wine-900">Laeticia Stagnara</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
+                        <h3 className="text-2xl font-serif text-wine-900">Laeticia Stagnara</h3>
                     </FadeIn>
 
                     {/* Portrait 6 */}
@@ -164,8 +159,7 @@ export default function HistoirePage() {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/15_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-xl font-serif text-wine-900">Tancrède Stagnara</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
+                        <h3 className="text-2xl font-serif text-wine-900">Tancrède Stagnara</h3>
                     </FadeIn>
 
                     {/* Portrait 7 */}
@@ -173,8 +167,7 @@ export default function HistoirePage() {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/18_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-xl font-serif text-wine-900">Membre de l'équipe</h3>
-                        <p className="text-xs text-gold-500 uppercase tracking-widest mt-1">Rôle à définir</p>
+                        <h3 className="text-2xl font-serif text-wine-900">Membre de l'équipe</h3>
                     </FadeIn>
 
                 </div>

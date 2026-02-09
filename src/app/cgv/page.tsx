@@ -9,7 +9,7 @@ export default function CGVPage() {
     return (
         <main className="min-h-screen pt-32 pb-20 bg-white">
             <div className="max-w-3xl mx-auto px-6 prose prose-stone">
-                <h1 className="text-3xl font-serif text-red-900 mb-8">Conditions Générales de Vente</h1>
+                <h1 className="text-3xl font-serif text-wine-900 mb-8 border-b-2 border-wine-100 pb-4">Conditions Générales de Vente</h1>
 
                 <p className="text-sm font-light italic mb-8">Dernière mise à jour : Février 2026</p>
 
@@ -48,13 +48,42 @@ export default function CGVPage() {
 
                 <h3>6. Droit de rétractation</h3>
                 <p>
-                    Conformément aux dispositions de l'article L.121-21 du Code de la Consommation, vous disposez d'un délai de rétractation de 14 jours à compter de la réception de vos produits pour exercer votre droit de rétraction sans avoir à justifier de motifs ni à payer de pénalité.
+                    Conformément aux dispositions de l'article L.221-18 du Code de la Consommation, vous disposez d'un délai de rétractation de 14 jours à compter de la réception de vos produits pour exercer votre droit de rétraction sans avoir à justifier de motifs ni à payer de pénalité.
                     Les retours sont à effectuer dans leur état d'origine et complets (bouteilles non ouvertes). Les frais de retour sont à votre charge.
                 </p>
 
-                <h3>7. Litiges</h3>
+                <div className="bg-stone-50 p-6 rounded-lg border border-stone-200 my-6 not-prose">
+                    <h4 className="font-bold text-wine-900 mb-4">Modèle de formulaire de rétractation :</h4>
+                    <p className="text-sm italic mb-4">(Veuillez compléter et renvoyer le présent formulaire uniquement si vous souhaitez vous rétracter du contrat)</p>
+                    <p className="text-sm">
+                        À l'attention du <strong>Domaine de Garanches</strong>,<br />
+                        345 chemin de Garanches, 69460 Odenas<br />
+                        Email : contact@domainedegaranches.com<br /><br />
+                        Je/nous (*) vous notifie/notifions (*) par la présente ma/notre (*) rétractation du contrat portant sur la vente du bien (*)/pour la prestation de services (*) ci-dessous :<br /><br />
+                        Commandé le (*)/reçu le (*) : ..........................................................................<br />
+                        Nom du (des) consommateur(s) : ..........................................................................<br />
+                        Adresse du (des) consommateur(s) : ..........................................................................<br />
+                        Signature du (des) consommateur(s) (uniquement en cas de notification du présent formulaire sur papier) :<br /><br />
+                        Date : ..........................................................................<br />
+                        <span className="text-xs">(*) Rayez la mention inutile.</span>
+                    </p>
+                </div>
+
+                <h3>7. Médiation de la consommation (Litiges)</h3>
                 <p>
-                    Les présentes conditions de vente à distance sont soumises à la loi française. En cas de litige, les tribunaux français seront les seuls compétents.
+                    Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation.
+                    En cas de litige non résolu par une réclamation préalable auprès de notre service client, vous pouvez contacter le médiateur de la consommation compétent.
+                    <br />
+                    <em>(Note : Il vous faudra adhérer à un organisme de médiation exemple: CM2C, AME Conso, etc. et inscrire leurs coordonnées ici. C'est obligatoire juridiquement).</em>
+                </p>
+                <p>
+                    À défaut, vous pouvez utiliser la plateforme européenne de règlement en ligne des litiges (RLL) disponible à l'adresse suivante :
+                    <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-wine-800 underline">https://ec.europa.eu/consumers/odr</a>.
+                </p>
+
+                <h3>8. Loi applicable</h3>
+                <p>
+                    Les présentes conditions de vente à distance sont soumises à la loi française.
                 </p>
             </div>
         </main>
