@@ -22,14 +22,14 @@ export default function Footer() {
                 </div>
 
 
-                <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
+                <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-300">
                     <Link href="/notre-histoire" className="hover:text-gold-500 transition-colors">Notre Histoire</Link>
                     <Link href="/nos-vins" className="hover:text-gold-500 transition-colors">Boutique</Link>
                     <Link href="/visite" className="hover:text-gold-500 transition-colors">Visite & Dégustation</Link>
                 </div>
 
 
-                <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-400">
+                <div className="flex flex-col items-center gap-4 text-sm uppercase tracking-widest font-semibold text-gray-300">
                     <Link href="/contact" className="hover:text-gold-500 transition-colors">Contact</Link>
                     <Link href="/mentions-legales" className="hover:text-gold-500 transition-colors">Mentions légales</Link>
                     <Link href="/politique-confidentialite" className="hover:text-gold-500 transition-colors">Confidentialité</Link>

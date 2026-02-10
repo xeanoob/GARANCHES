@@ -7,7 +7,7 @@ export default function ContactContent() {
     return (
         <main className="min-h-screen bg-paper pt-32 pb-20">
             <FadeIn direction="down" className="text-center px-6 mb-16">
-                <span className="text-amber-600 font-serif italic text-lg mb-2 block">Une question ?</span>
+                <span className="text-amber-700 font-serif italic text-lg mb-2 block">Une question ?</span>
                 <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mb-6 font-medium">Contact & Accès</h1>
                 <p className="max-w-xl mx-auto text-gray-600 font-light text-lg">
                     Nous sommes à votre écoute pour toute demande d'information, commande ou réservation de visite.
@@ -29,7 +29,7 @@ export default function ContactContent() {
                                     </svg>
                                 </div>
                                 <div>
-                                    <span className="text-amber-600 uppercase tracking-widest text-xs font-bold block mb-1">Adresse</span>
+                                    <span className="text-amber-700 uppercase tracking-widest text-xs font-bold block mb-1">Adresse</span>
                                     <p className="text-gray-700 leading-relaxed font-medium">
                                         Domaine de Garanches<br />
                                         345 chemin de Garanches<br />
@@ -46,7 +46,7 @@ export default function ContactContent() {
                                     </svg>
                                 </div>
                                 <div>
-                                    <span className="text-amber-600 uppercase tracking-widest text-xs font-bold block mb-1">Téléphone</span>
+                                    <span className="text-amber-700 uppercase tracking-widest text-xs font-bold block mb-1">Téléphone</span>
                                     <p className="text-gray-900 hover:text-wine-700 transition-colors font-bold text-lg">
                                         <a href="tel:+33474034480">04 74 03 44 80</a>
                                     </p>
@@ -60,7 +60,7 @@ export default function ContactContent() {
                                     </svg>
                                 </div>
                                 <div>
-                                    <span className="text-amber-600 uppercase tracking-widest text-xs font-bold block mb-1">Horaires d'Ouverture</span>
+                                    <span className="text-amber-700 uppercase tracking-widest text-xs font-bold block mb-1">Horaires d'Ouverture</span>
                                     <p className="text-gray-700 leading-relaxed">
                                         Lundi au Samedi : 09h00 - 18h00<br />
                                         <span className="text-sm text-gray-500 italic">Fermé le Dimanche et jours fériés</span>

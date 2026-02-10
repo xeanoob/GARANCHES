@@ -59,13 +59,11 @@ export default function HomePageClient({ products }: { products: any[] }) {
 
     const titleVariants = {
         loading: {
-            color: "#7f1d1d",
             scale: 1.1,
             y: 0,
             opacity: 1
         },
         loaded: {
-            color: "#ffffff",
             scale: 1,
             y: 0,
             opacity: 1
@@ -114,7 +112,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
                                 duration: 1.5,
                                 ease: [0.22, 1, 0.36, 1]
                             }}
-                            className={`font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight text-center relative ${isLoading ? "z-[120]" : "z-[70]"}`}
+                            className={`font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight text-center relative transition-colors duration-1000 ${isLoading ? "z-[120] text-red-900" : "z-[70] text-white"}`}
                         >
                             Domaine de <br />
                             <span className="italic">Garanches</span>
@@ -165,7 +163,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
                     <FadeIn direction="right">
                         <div>
-                            <span className="text-amber-600 font-serif italic text-xl md:text-2xl mb-2 block">Notre Philosophie</span>
+                            <span className="text-amber-700 font-serif italic text-xl md:text-2xl mb-2 block">Notre Philosophie</span>
                             <h2 className="text-4xl md:text-5xl font-serif text-red-900 mb-6 md:mb-8 leading-tight">Un Terroir <br />d'Exception</h2>
                             <div className="text-gray-600 leading-loose text-base md:text-lg font-light mb-8 text-justify space-y-4">
                                 <p>
@@ -200,7 +198,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
             <section className="py-20 md:py-32 bg-stone-100">
                 <div className="max-w-7xl mx-auto px-6">
                     <FadeIn direction="up" className="text-center mb-16">
-                        <span className="text-amber-600 font-serif italic text-xl mb-2 block">Savoir-faire & Tradition</span>
+                        <span className="text-amber-700 font-serif italic text-xl mb-2 block">Savoir-faire & Tradition</span>
                         <h2 className="text-3xl md:text-4xl font-serif text-wine-900 mb-6">Nos Cépages & Engagements</h2>
                         <div className="w-24 h-1 bg-wine-900 mx-auto opacity-20"></div>
                     </FadeIn>
@@ -234,7 +232,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-12 md:mb-20">
                         <FadeIn direction="down">
-                            <span className="text-amber-600 text-sm font-bold uppercase tracking-widest mb-4 block">Boutique en ligne</span>
+                            <span className="text-amber-700 text-sm font-bold uppercase tracking-widest mb-4 block">Boutique en ligne</span>
                             <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">Nos Grandes Cuvées</h2>
                             <p className="max-w-2xl mx-auto text-gray-500 font-light leading-relaxed mb-8">
                                 Du cep à votre verre, sans intermédiaire. Découvrez nos Crus du Beaujolais et nos vins de Bourgogne, élevés avec patience et passion. L'expression authentique de notre terroir, disponible en direct de la propriété.
@@ -273,7 +271,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
                                         <p className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">
                                             {wine.subtitle || "Vin du Domaine"}
                                         </p>
-                                        <p className="text-xl font-bold text-amber-600 mb-4">
+                                        <p className="text-xl font-bold text-amber-700 mb-4">
                                             {(wine.price / 100).toFixed(2).replace('.', ',')} €
                                         </p>
                                     </div>

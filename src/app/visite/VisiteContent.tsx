@@ -17,7 +17,7 @@ export default function VisiteContent() {
 
                 <FadeIn direction="right">
                     <div>
-                        <span className="text-amber-600 font-serif italic text-xl block mb-2">Bienvenue au Domaine</span>
+                        <span className="text-amber-700 font-serif italic text-xl block mb-2">Bienvenue au Domaine</span>
                         <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mb-8 leading-tight">
                             Visite & <br />Dégustation
                         </h1>

@@ -39,7 +39,7 @@ export default function FAQ() {
             <div className="max-w-4xl mx-auto px-6">
                 <FadeIn direction="up">
                     <div className="text-center mb-12">
-                        <span className="text-amber-600 font-serif italic text-lg mb-2 block">Questions Fréquentes</span>
+                        <span className="text-amber-700 font-serif italic text-lg mb-2 block">Questions Fréquentes</span>
                         <h2 className="text-4xl font-serif text-wine-900">Tout savoir sur le Domaine</h2>
                     </div>
 
