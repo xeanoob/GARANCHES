@@ -103,7 +103,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
                     />
                 </div>
 
-                <div className="relative text-center px-4 max-w-7xl mx-auto flex flex-col items-center pt-20 md:pt-24">
+                <div className="relative text-center px-4 max-w-7xl mx-auto flex flex-col items-center pt-24 md:pt-20">
                     {mounted && (
                         <motion.h1
                             initial="loading"
@@ -137,20 +137,21 @@ export default function HomePageClient({ products }: { products: any[] }) {
                     >
                         <div className="w-16 h-0.5 md:w-24 md:h-1 bg-amber-500 mb-6"></div>
 
-                        <p className="text-sm md:text-lg font-light max-w-xl mb-8 text-gray-100 leading-relaxed px-2 text-white">
-                            Au cœur du Beaujolais, au pied du Mont Brouilly, découvrez l'élégance d'un savoir-faire familial séculaire.
+                        <p className="text-sm md:text-lg font-light max-w-xl mb-6 text-gray-100 leading-relaxed px-2 text-white">
+                            Ancré à Odenas, au pied majestueux du Mont Brouilly, le Domaine de Garanches perpétue la tradition du Gamay.
+                            Plongez dans l'univers de nos vins d'exception, où chaque cuvée raconte l'histoire d'une passion familiale.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center w-full px-6">
+                        <div className="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center items-center w-full">
                             <Link
                                 href="/nos-vins"
-                                className="w-full sm:w-auto px-6 py-3 md:px-10 md:py-4 bg-red-900/90 hover:bg-red-800 text-white uppercase tracking-widest text-[10px] md:text-xs font-bold transition-all border border-red-900 hover:scale-105 duration-300 rounded-full"
+                                className="w-[260px] px-8 py-3 bg-red-900/90 hover:bg-red-800 text-white uppercase tracking-widest text-xs font-bold transition-all border border-red-900 hover:scale-105 duration-300 rounded-full text-center shadow-lg"
                             >
                                 Découvrir nos vins
                             </Link>
                             <Link
                                 href="/visite"
-                                className="w-full sm:w-auto px-6 py-3 md:px-10 md:py-4 bg-transparent hover:bg-white/10 text-white uppercase tracking-widest text-[10px] md:text-xs font-bold transition-all border border-white hover:scale-105 duration-300 rounded-full"
+                                className="w-[260px] px-8 py-3 bg-transparent hover:bg-white/10 text-white uppercase tracking-widest text-xs font-bold transition-all border border-white hover:scale-105 duration-300 rounded-full text-center backdrop-blur-sm"
                             >
                                 Venir au domaine
                             </Link>
@@ -165,10 +166,14 @@ export default function HomePageClient({ products }: { products: any[] }) {
                         <div>
                             <span className="text-amber-600 font-serif italic text-xl md:text-2xl mb-2 block">Notre Philosophie</span>
                             <h2 className="text-4xl md:text-5xl font-serif text-red-900 mb-6 md:mb-8 leading-tight">Un Terroir <br />d'Exception</h2>
-                            <p className="text-gray-600 leading-loose text-base md:text-lg font-light mb-8 text-justify">
-                                Le Domaine de Garanches s'étend sur 14 hectares de vignes exposées sud-est.
-                                Nos sols granitiques confèrent au Gamay une expression unique.
-                            </p>
+                            <div className="text-gray-600 leading-loose text-base md:text-lg font-light mb-8 text-justify space-y-4">
+                                <p>
+                                    Depuis 1788, le Domaine de Garanches écrit son histoire au cœur du Beaujolais. Aujourd'hui, Romain Martinache et Aurélie Crozet perpétuent cet héritage avec une vision moderne. Gardiens d'un savoir-faire ancestral, ils œuvrent chaque jour pour révéler la quintessence de ce vignoble historique.
+                                </p>
+                                <p>
+                                    Nos vignes puisent leur force dans un terroir granitique exceptionnel, exposé sud-est face au Mont Brouilly. Cette géologie singulière confère à nos vins une minéralité racée et une complexité unique, reflet fidèle de l'alliance entre la main de l'homme et la terre d'Odenas.
+                                </p>
+                            </div>
                             <Link href="/notre-histoire" className="group inline-flex items-center text-red-900 uppercase text-xs font-bold tracking-widest hover:text-amber-600 transition-colors">
                                 <span className="border-b border-red-900 pb-1 group-hover:border-amber-600">Lire notre histoire</span>
                                 <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -196,7 +201,10 @@ export default function HomePageClient({ products }: { products: any[] }) {
                     <div className="text-center mb-12 md:mb-20">
                         <FadeIn direction="down">
                             <span className="text-amber-600 text-sm font-bold uppercase tracking-widest mb-4 block">Boutique en ligne</span>
-                            <h2 className="text-4xl md:text-5xl font-serif text-gray-900">Nos Grandes Cuvées</h2>
+                            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">Nos Grandes Cuvées</h2>
+                            <p className="max-w-2xl mx-auto text-gray-500 font-light leading-relaxed mb-8">
+                                Du cep à votre verre, sans intermédiaire. Découvrez nos Crus du Beaujolais et nos vins de Bourgogne, élevés avec patience et passion. L'expression authentique de notre terroir, disponible en direct de la propriété.
+                            </p>
                         </FadeIn>
                     </div>
 
