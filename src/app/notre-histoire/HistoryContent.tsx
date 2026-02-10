@@ -27,11 +27,16 @@ export default function HistoryContent() {
 
                     <FadeIn direction="left" delay={0.2} className="md:pl-10">
                         <h2 className="text-3xl font-serif text-wine-900 mb-6">Les Origines</h2>
-                        <p className="first-letter:text-5xl first-letter:font-serif first-letter:text-wine-900 first-letter:float-left first-letter:mr-3 first-letter:font-bold leading-relaxed text-justify">
-                            Fondé en 1788 par la famille Bender, le Domaine de Garanches est avant tout une histoire de passion transmise de génération en génération.
+                        <p className="first-letter:text-5xl first-letter:font-serif first-letter:text-wine-900 first-letter:float-left first-letter:mr-3 first-letter:font-bold leading-relaxed text-justify mb-6">
+                            Fondé en 1788, à l'aube de la Révolution Française, le Domaine de Garanches puise ses racines dans la terre granitique d'Odenas. Témoin privilégié de l'histoire viticole du Beaujolais, notre domaine a traversé les siècles en conservant intacte son âme vigneronne. C'est ici, au pied du Mont Brouilly, que se perpétue depuis plus de deux cents ans un savoir-faire immuable, respectueux des cycles de la nature et de l'identité de nos terroirs.
                         </p>
-                        <p className="text-gray-600 font-light leading-relaxed mb-6 mt-4">
-                            Depuis plus de deux siècles, nous cultivons nos vignes sur les pentes du Mont Brouilly, dans le respect des traditions beaujolaises. Chaque pierre du domaine raconte une partie de cette longue histoire, des premières vendanges aux innovations d'aujourd'hui en permaculture.
+                        <h2 className="text-2xl font-serif text-wine-900 mb-4 mt-8">Transmission & Modernité</h2>
+                        <p className="text-gray-600 font-light leading-relaxed mb-6 text-justify">
+                            Aujourd'hui, Romain Martinache et Aurélie Crozet écrivent une nouvelle page de cette saga familiale. Héritiers d'une longue tradition, ils insufflent une énergie nouvelle au domaine, alliant avec finesse les méthodes ancestrales aux techniques de vinification modernes. Leur ambition est claire : sublimer le Gamay pour offrir des vins de caractère, précis et élégants, qui racontent à chaque gorgée l'alliance réussie entre passé et présent.
+                        </p>
+                        <h2 className="text-2xl font-serif text-wine-900 mb-4 mt-8">La Philosophie du Vigneron</h2>
+                        <p className="text-gray-600 font-light leading-relaxed text-justify">
+                            Dans nos vignes, chaque geste compte. Nous travaillons en harmonie avec le vivant, privilégiant une viticulture raisonnée et attentive. De la taille hivernale aux vendanges manuelles, nous accompagnons nos raisins de Gamay et de Chardonnay avec une exigence absolue, pour qu'ils expriment toute la richesse et la minéralité de notre terroir d'exception.
                         </p>
                     </FadeIn>
                 </div>

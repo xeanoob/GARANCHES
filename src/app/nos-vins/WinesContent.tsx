@@ -13,9 +13,9 @@ export default function WinesContent({ wines }: { wines: any[] }) {
             <FadeIn direction="down" className="text-center px-6 mb-20">
                 <span className="text-gold-500 font-serif italic text-xl">La Cave</span>
                 <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mt-4 mb-6">Nos Cuvées</h1>
-                <p className="max-w-2xl mx-auto text-gray-600 font-light leading-relaxed">
-                    Tous nos vins sont produits, vinifiés et mis en bouteille à la propriété.<br />
-                    Expédition possible dans toute la France (cartons de 6 ou 12 bouteilles).
+                <p className="max-w-3xl mx-auto text-gray-600 font-light leading-relaxed">
+                    Découvrez toute la richesse de notre terroir à travers une gamme variée et authentique. De la puissance structurée de nos <strong>Brouilly</strong> rouges à l'élégance florale de nos <strong>Bourgogne Blancs</strong> (Chardonnay), sans oublier la fraîcheur de nos <strong>Rosés</strong> et la finesse de nos bulles en Méthode Traditionnelle.
+                    Tous nos vins sont stockés et expédiés directement depuis notre cave à Odenas, dans un conditionnement sécurisé garantissant leur intégrité. Commandez en direct du producteur et profitez d'un rapport qualité/prix exceptionnel, sans intermédiaire.
                 </p>
             </FadeIn>
 

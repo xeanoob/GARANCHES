@@ -24,16 +24,16 @@ export default function VisiteContent() {
 
                         <div className="space-y-8 text-gray-600 font-light leading-relaxed">
                             <p className="text-lg">
-                                Nous vous accueillons au caveau pour vous faire découvrir nos vins et partager notre passion.
-                                Que vous soyez amateur éclairé ou simple curieux, la porte du Domaine de Garanches est toujours ouverte.
+                                Poussez les portes de notre caveau pour une parenthèse authentique au cœur du vignoble. Nous vous accueillons en toute simplicité et convivialité, face au panorama unique du Mont Brouilly.
+                                Prenez le temps de déguster l'ensemble de notre gamme : l'intensité de nos Brouilly, la fraîcheur de notre Bourgogne Blanc ou la finesse de nos Rosés. Ici, le vin se partage et se raconte.
                             </p>
 
                             <div className="bg-white p-8 shadow-sm rounded-lg border border-gray-100 relative overflow-hidden group hover:shadow-md transition-shadow">
                                 <div className="absolute top-0 left-0 w-1 h-full bg-amber-500 group-hover:w-2 transition-all"></div>
-                                <h3 className="font-bold text-wine-900 uppercase tracking-widest text-sm mb-4">Accès Facile</h3>
+                                <h3 className="font-bold text-wine-900 uppercase tracking-widest text-sm mb-4">Infos Pratiques & Groupes</h3>
                                 <p className="text-sm leading-7">
-                                    Situé à seulement <strong>45 min de Lyon</strong> et <strong>25 min de Mâcon</strong>.<br />
-                                    Sortie A6 n°30 (Belleville), suivre Odenas / Mont Brouilly.
+                                    Nous recevons avec plaisir les visiteurs individuels comme les groupes. Pour vous garantir le meilleur accueil, <strong>une réservation téléphonique est conseillée</strong>.
+                                    Profitez de votre visite pour effectuer vos achats en direct de la propriété et bénéficier de nos tarifs préférentiels "départ cave".
                                 </p>
                             </div>
 
