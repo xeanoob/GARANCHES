@@ -29,6 +29,9 @@ const montserrat = Montserrat({
 // --- CONFIGURATION SEO ---
 export const metadata: Metadata = {
   metadataBase: new URL('https://domainedegaranches.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "Domaine de Garanches | Vins de Brouilly & Bourgogne Blanc - Odenas",
     template: "%s | Domaine de Garanches"
