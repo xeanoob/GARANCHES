@@ -45,10 +45,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const addToCart = (item: CartItem) => {
         setCart(prev => {
             const existing = prev.find(i => i.id === item.id);
+            const quantityToAdd = item.quantity || 1;
+
             if (existing) {
-                return prev.map(i => i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i);
+                return prev.map(i => i.id === item.id ? { ...i, quantity: i.quantity + quantityToAdd } : i);
             }
-            return [...prev, { ...item, quantity: 1 }];
+            return [...prev, { ...item, quantity: quantityToAdd }];
         });
     };
 

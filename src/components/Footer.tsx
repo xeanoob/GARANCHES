@@ -12,11 +12,13 @@ export default function Footer() {
 
                 <div>
                     <h4 className="font-serif text-2xl text-white mb-6">Domaine de Garanches</h4>
-                    <p className="font-light text-sm leading-loose text-gray-300">
+                    <p className="font-light text-sm leading-loose text-gray-300 mb-6">
                         345 chemin de Garanches<br />
                         69460 Odenas — France<br />
                         +33 4 74 03 44 80
                     </p>
+
+
                 </div>
 
 

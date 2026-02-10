@@ -40,7 +40,7 @@ export default function AddToCartButton({ wine }: { wine: Wine }) {
         <div className="flex flex-row items-center justify-between md:justify-start gap-4 mt-6 w-full">
 
 
-            <div className="flex items-center border border-wine-900 w-fit rounded-full overflow-hidden shrink-0">
+            <div className="flex items-center border border-wine-900 w-fit rounded-full overflow-hidden shrink-0 bg-white">
                 <button
                     onClick={decrement}
                     className="px-4 py-3 text-wine-900 hover:bg-wine-50 transition-colors"

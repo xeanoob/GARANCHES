@@ -73,8 +73,10 @@ export default function CGVPage() {
                 <p>
                     Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation.
                     En cas de litige non résolu par une réclamation préalable auprès de notre service client, vous pouvez contacter le médiateur de la consommation compétent.
-                    <br />
-                    <em>(Note : Il vous faudra adhérer à un organisme de médiation exemple: CM2C, AME Conso, etc. et inscrire leurs coordonnées ici. C'est obligatoire juridiquement).</em>
+                    <br /><br />
+                    <strong>Médiateur de la consommation :</strong><br />
+                    [Nom et coordonnées du médiateur à renseigner]<br />
+                    [Site web du médiateur]
                 </p>
                 <p>
                     À défaut, vous pouvez utiliser la plateforme européenne de règlement en ligne des litiges (RLL) disponible à l'adresse suivante :
