@@ -68,7 +68,7 @@ export default function AgeGate({ initialShow }: AgeGateProps) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.8 }}
                         >
-                            <h2 id="age-gate-title" className="text-3xl font-serif text-white mb-2">Bienvenue au Domaine</h2>
+                            <div id="age-gate-title" className="text-3xl font-serif text-white mb-2">Bienvenue au Domaine</div>
                             <div className="w-16 h-px bg-amber-500 mx-auto mb-6"></div>
 
                             <p className="text-stone-300 mb-10 font-light leading-relaxed">

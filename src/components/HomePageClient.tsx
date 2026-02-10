@@ -196,6 +196,39 @@ export default function HomePageClient({ products }: { products: any[] }) {
                 </div>
             </section>
 
+            <section className="py-20 md:py-32 bg-stone-100">
+                <div className="max-w-7xl mx-auto px-6">
+                    <FadeIn direction="up" className="text-center mb-16">
+                        <span className="text-amber-600 font-serif italic text-xl mb-2 block">Savoir-faire & Tradition</span>
+                        <h2 className="text-3xl md:text-4xl font-serif text-wine-900 mb-6">Nos Cépages & Engagements</h2>
+                        <div className="w-24 h-1 bg-wine-900 mx-auto opacity-20"></div>
+                    </FadeIn>
+
+                    <div className="grid md:grid-cols-3 gap-12">
+                        <FadeIn delay={0.1} className="bg-white p-8 rounded-lg shadow-sm border border-stone-200">
+                            <h3 className="text-2xl font-serif text-wine-900 mb-4">Le Gamay Noir</h3>
+                            <p className="text-gray-600 font-light leading-relaxed text-sm text-justify">
+                                Emblème de notre domaine, le Gamay Noir à Jus Blanc s'épanouit sur nos coteaux granitiques. Il offre à nos Brouilly cette robe rubis profond et ces arômes de fruits rouges (fraise, framboise) et noirs, soulignés par des notes épicées et minérales typiques du Mont Brouilly.
+                            </p>
+                        </FadeIn>
+
+                        <FadeIn delay={0.2} className="bg-white p-8 rounded-lg shadow-sm border border-stone-200">
+                            <h3 className="text-2xl font-serif text-wine-900 mb-4">Le Chardonnay</h3>
+                            <p className="text-gray-600 font-light leading-relaxed text-sm text-justify">
+                                Nos vignes de Chardonnay, cultivées sur des parcelles argilo-calcaires choisies, donnent naissance à un Bourgogne Blanc d'une grande finesse. Un vin ample et floral, aux notes d'agrumes et de fleurs blanches, qui révèle toute l'élégance de ce cépage noble.
+                            </p>
+                        </FadeIn>
+
+                        <FadeIn delay={0.3} className="bg-white p-8 rounded-lg shadow-sm border border-stone-200">
+                            <h3 className="text-2xl font-serif text-wine-900 mb-4">Viticulture Durable</h3>
+                            <p className="text-gray-600 font-light leading-relaxed text-sm text-justify">
+                                Vignerons indépendants, nous pratiquons une viticulture raisonnée certifiée HVE (Haute Valeur Environnementale). Enherbement des rangs, travail mécanique des sols et vendanges manuelles : chaque intervention vise à préserver la biodiversité et garantir la pureté de nos vins.
+                            </p>
+                        </FadeIn>
+                    </div>
+                </div>
+            </section>
+
             <section className="py-20 md:py-32 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-12 md:mb-20">
