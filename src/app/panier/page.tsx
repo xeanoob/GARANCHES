@@ -29,14 +29,36 @@ export default function CartPage() {
 
             if (!res.ok) throw new Error('Erreur lors du paiement');
 
-            const { id } = await res.json();
+            const data = await res.json();
+
+            if (!data?.id) {
+                console.error("No checkout ID returned", data);
+                alert("Erreur: Impossible d'initialiser le paiement.");
+                return;
+            }
+
+            const { id } = data;
 
             if (id.startsWith('mock-')) {
                 alert("Mode Simulation : Paiement validé (Aucun débit)");
                 return;
             }
 
-            alert(`Paiement initialisé avec SumUp ID: ${id}. Redirection...`);
+            // @ts-ignore - SumUp SDK is loaded globally via Script tag
+            if (typeof SumUpCard === 'undefined') {
+                console.error("SumUp SDK not loaded");
+                alert("Erreur de chargement du module de paiement. Veuillez recharger la page.");
+                return;
+            }
+
+            // @ts-ignore
+            SumUpCard.mount({
+                id: 'sumup-card',
+                checkoutId: id,
+                onResponse: function (type: any, body: any) {
+                    console.log('SumUp response:', type, body);
+                }
+            });
 
         } catch (error) {
             console.error(error);
@@ -112,10 +134,7 @@ export default function CartPage() {
                                     <span className="text-gray-600 font-serif">Sous-total</span>
                                     <span className="font-bold text-wine-900">{(totalPrice / 100).toFixed(2).replace('.', ',')} €</span>
                                 </div>
-                                <div className="flex justify-between mb-6">
-                                    <span className="text-gray-600 font-serif">Livraison</span>
-                                    <span className="text-sm text-gray-400 italic">Calculée à l'étape suivante</span>
-                                </div>
+
 
                                 <div className="flex justify-between mb-8 border-t border-gray-100 pt-6">
                                     <span className="font-bold text-xl text-wine-900">Total</span>
