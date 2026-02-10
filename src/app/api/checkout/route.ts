@@ -7,10 +7,7 @@ export async function POST(req: Request) {
     const localProduct = PRODUCTS.find(p => p.name === wineName || p.id === wineName);
 
 
-    if (!process.env.SUMUP_ACCESS_TOKEN || process.env.SUMUP_ACCESS_TOKEN === 'mock') {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        return NextResponse.json({ id: `mock-${Date.now()}` });
-    }
+
 
     if (localProduct) {
 
