@@ -15,7 +15,6 @@ export default function HomePageClient({ products }: { products: any[] }) {
     useEffect(() => {
         setMounted(true);
         document.body.classList.add("overflow-hidden");
-        // window.scrollTo(0, 0); // Removed to avoid jump on reload if user scrolled
 
         const isPWA = window.matchMedia('(display-mode: standalone)').matches;
 
