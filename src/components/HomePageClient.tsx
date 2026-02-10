@@ -14,14 +14,14 @@ export default function HomePageClient({ products }: { products: any[] }) {
 
     useEffect(() => {
         setMounted(true);
-        document.body.style.overflow = "hidden";
+        document.body.classList.add("overflow-hidden");
         // window.scrollTo(0, 0); // Removed to avoid jump on reload if user scrolled
 
         const isPWA = window.matchMedia('(display-mode: standalone)').matches;
 
         const startAnimation = () => {
             setIsLoading(false);
-            document.body.style.overflow = "unset";
+            document.body.classList.remove("overflow-hidden");
             sessionStorage.setItem("intro-played", "true");
             window.dispatchEvent(new Event("intro-complete"));
         };
@@ -30,7 +30,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
 
         if (hasPlayedIntro || isPWA) {
             setIsLoading(false);
-            document.body.style.overflow = "unset";
+            document.body.classList.remove("overflow-hidden");
             return;
         }
 
@@ -47,7 +47,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
 
             const safetyTimeout = setTimeout(() => {
                 setIsLoading(false);
-                document.body.style.overflow = "unset";
+                document.body.classList.remove("overflow-hidden");
             }, 5000);
 
             return () => {
@@ -99,7 +99,8 @@ export default function HomePageClient({ products }: { products: any[] }) {
                         sizes="100vw"
                         className="object-cover brightness-75"
                         priority
-                        quality={85}
+                        quality={75}
+                        fetchPriority="high"
                     />
                 </div>
 
@@ -253,6 +254,8 @@ export default function HomePageClient({ products }: { products: any[] }) {
                                             alt={`${wine.name} - Domaine de Garanches`}
                                             fill
                                             sizes="(max-width: 768px) 100vw, 33vw"
+                                            loading="lazy"
+                                            quality={75}
                                             className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
                                         />
                                         {/* Badge Best Seller artificiel pour l'exemple (optionnel) */}

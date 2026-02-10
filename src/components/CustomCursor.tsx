@@ -39,8 +39,8 @@ export default function CustomCursor() {
             setIsHovering(isInteractive);
         };
 
-        window.addEventListener("mousemove", moveCursor);
-        window.addEventListener("mouseover", handleMouseOver);
+        window.addEventListener("mousemove", moveCursor, { passive: true });
+        window.addEventListener("mouseover", handleMouseOver, { passive: true });
 
         return () => {
             window.removeEventListener("mousemove", moveCursor);
@@ -65,7 +65,7 @@ export default function CustomCursor() {
 
 
             <motion.div
-                className="fixed top-0 left-0 w-8 h-8 border border-white rounded-full pointer-events-none z-[9998] hidden md:block mix-blend-difference"
+                className={`fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9998] hidden md:block mix-blend-difference transition-[border-color,background-color] duration-200 ${isHovering ? 'bg-white/10 border border-transparent' : 'bg-transparent border border-white'}`}
                 style={{
                     x: springX,
                     y: springY,
@@ -74,11 +74,9 @@ export default function CustomCursor() {
                 }}
                 animate={{
                     scale: isHovering ? 2.5 : 1,
-                    backgroundColor: isHovering ? "rgba(255, 255, 255, 0.1)" : "transparent",
-                    borderColor: isHovering ? "transparent" : "white",
                 }}
                 transition={{
-                    scale: { duration: 0.2 } // Transition rapide pour le scale
+                    scale: { duration: 0.2 }
                 }}
             />
         </>

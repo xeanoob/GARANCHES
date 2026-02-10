@@ -46,7 +46,6 @@ export default function FadeIn({
                 delay: delay,
                 ease: [0.25, 0.1, 0.25, 1]
             }}
-            style={{ willChange: "transform, opacity" }}
             className={className}
         >
             {children}

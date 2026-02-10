@@ -36,7 +36,7 @@ export default function ParallaxImage({ src, alt, className = "", sizes = "100vw
                     fill
                     sizes={sizes}
                     loading="lazy"
-                    quality={85}
+                    quality={75}
                     className="object-cover"
                 />
             </motion.div>

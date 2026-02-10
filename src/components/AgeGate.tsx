@@ -17,18 +17,23 @@ export default function AgeGate({ initialShow }: AgeGateProps) {
         // En cas de navigation client ou si le cookie n'était pas là, on vérifie quand même le localStorage en backup
         const hasConfirmed = localStorage.getItem("age-confirmed");
 
-        // Si le serveur a dit "Affiche" (initialShow = true) mais que le client a "confirmé" en localStorage
-        // On peut décider de fermer. Mais pour éviter le flash, l'important est 'initialShow'.
         // Ici on gère juste le bloquage du scroll.
         if (isVisible) {
-            document.body.style.overflow = "hidden";
+            document.body.classList.add("overflow-hidden");
         } else {
-            document.body.style.overflow = "unset";
+            document.body.classList.remove("overflow-hidden");
         }
+
+        // Cleanup for bfcache compatibility
+        const handlePageHide = () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+        window.addEventListener("pagehide", handlePageHide);
 
         // Nettoyage au démontage du composant
         return () => {
-            document.body.style.overflow = "unset";
+            document.body.classList.remove("overflow-hidden");
+            window.removeEventListener("pagehide", handlePageHide);
         };
     }, [isVisible]);
 

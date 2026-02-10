@@ -27,9 +27,9 @@ export default function Navbar() {
 
     useEffect(() => {
         if (isOpen) {
-            document.body.style.overflow = "hidden";
+            document.body.classList.add("overflow-hidden");
         } else {
-            document.body.style.overflow = "unset";
+            document.body.classList.remove("overflow-hidden");
         }
     }, [isOpen]);
 
@@ -55,7 +55,7 @@ export default function Navbar() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -112,6 +112,7 @@ export default function Navbar() {
 
                     <Link
                         href="/panier"
+                        aria-label={`Panier${totalItems > 0 ? ` (${totalItems} article${totalItems > 1 ? 's' : ''})` : ''}`}
                         className={`relative group flex items-center justify-center w-10 h-10 transition-colors duration-300 ${useDarkText ? "text-stone-900 hover:text-amber-600" : "text-white hover:text-amber-400"}`}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -147,6 +148,8 @@ export default function Navbar() {
 
                     <button
                         onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                        aria-expanded={isOpen}
                         className="relative w-10 h-10 flex flex-col justify-center items-end gap-1.5 group"
                     >
                         <span className={`h-0.5 rounded-full transition-all duration-300 ${useDarkText && !isOpen ? "bg-stone-900" : "bg-white"} ${isOpen ? "w-6 rotate-45 translate-y-2 bg-white" : "w-6"}`} />

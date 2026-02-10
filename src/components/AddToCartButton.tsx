@@ -43,6 +43,7 @@ export default function AddToCartButton({ wine }: { wine: Wine }) {
             <div className="flex items-center border border-wine-900 w-fit rounded-full overflow-hidden shrink-0 bg-white">
                 <button
                     onClick={decrement}
+                    aria-label="Réduire la quantité"
                     className="px-4 py-3 text-wine-900 hover:bg-wine-50 transition-colors"
                 >
                     -
@@ -52,6 +53,7 @@ export default function AddToCartButton({ wine }: { wine: Wine }) {
                 </span>
                 <button
                     onClick={increment}
+                    aria-label="Augmenter la quantité"
                     className="px-4 py-3 text-wine-900 hover:bg-wine-50 transition-colors"
                 >
                     +
