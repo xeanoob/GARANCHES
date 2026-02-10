@@ -10,7 +10,7 @@ interface Props {
     className?: string;
 }
 
-export default function ParallaxImage({ src, alt, className = "" }: Props) {
+export default function ParallaxImage({ src, alt, className = "", sizes = "100vw" }: Props & { sizes?: string }) {
     const ref = useRef(null);
 
     const { scrollYProgress } = useScroll({
@@ -34,7 +34,7 @@ export default function ParallaxImage({ src, alt, className = "" }: Props) {
                     src={src}
                     alt={alt}
                     fill
-                    sizes="100vw"
+                    sizes={sizes}
                     loading="lazy"
                     quality={85}
                     className="object-cover"

@@ -76,6 +76,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Winery",
+  "inLanguage": "fr-FR",
   "name": "Domaine de Garanches",
   "image": "https://domainedegaranches.com/images/34_slide001.jpg",
   "url": "https://domainedegaranches.com",

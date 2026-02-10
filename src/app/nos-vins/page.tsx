@@ -9,21 +9,14 @@ export const metadata: Metadata = {
 
 const FALLBACK_WINES = PRODUCTS;
 
+import { getSumUpProducts } from "@/lib/sumup";
+
 async function getWines() {
-    try {
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-        const res = await fetch(`${baseUrl}/api/products`, {
-            next: { revalidate: 3600 }
-        });
-
-        if (!res.ok) return FALLBACK_WINES;
-        const data = await res.json();
-
-        return data.items && data.items.length > 0 ? data.items : FALLBACK_WINES;
-    } catch (error) {
-        console.error("Erreur API SumUp:", error);
-        return FALLBACK_WINES;
+    const wines = await getSumUpProducts();
+    if (wines && wines.length > 0) {
+        return wines;
     }
+    return FALLBACK_WINES;
 }
 
 export default async function NosVinsPage() {
@@ -32,6 +25,7 @@ export default async function NosVinsPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
+        "inLanguage": "fr-FR",
         "itemListElement": wines.map((wine: any, index: number) => ({
             "@type": "ListItem",
             "position": index + 1,

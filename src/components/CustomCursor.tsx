@@ -12,7 +12,15 @@ export default function CustomCursor() {
     const springX = useSpring(cursorX, springConfig);
     const springY = useSpring(cursorY, springConfig);
 
+    const [isTouch, setIsTouch] = useState(false);
+
     useEffect(() => {
+        // Détection tactile
+        if (window.matchMedia("(pointer: coarse)").matches) {
+            setIsTouch(true);
+            return;
+        }
+
         const moveCursor = (e: MouseEvent) => {
             cursorX.set(e.clientX);
             cursorY.set(e.clientY);
@@ -39,6 +47,8 @@ export default function CustomCursor() {
             window.removeEventListener("mouseover", handleMouseOver);
         };
     }, []);
+
+    if (isTouch) return null;
 
     return (
         <>

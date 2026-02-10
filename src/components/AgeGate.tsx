@@ -25,6 +25,11 @@ export default function AgeGate({ initialShow }: AgeGateProps) {
         } else {
             document.body.style.overflow = "unset";
         }
+
+        // Nettoyage au démontage du composant
+        return () => {
+            document.body.style.overflow = "unset";
+        };
     }, [isVisible]);
 
     const handleConfirm = () => {

@@ -183,6 +183,7 @@ export default function Home() {
                 src="/images/23_slide002.jpg"
                 alt="Grappe de raisin Gamay du Beaujolais sur cep de vigne"
                 className="h-full w-full rounded-lg shadow-xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </FadeIn>
@@ -207,6 +208,7 @@ export default function Home() {
                     src="/images/36_brouilly-h.jpg"
                     alt="Bouteille de vin rouge Brouilly Cru du Beaujolais - Domaine de Garanches"
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
                   />
                 </div>
@@ -226,6 +228,7 @@ export default function Home() {
                     src="/images/37_bourgogne-blanc-h.jpg"
                     alt="Bouteille de Bourgogne Blanc Chardonnay - Domaine de Garanches"
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
                   />
                   <div className="absolute top-4 right-4 bg-amber-500 text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Best Seller</div>
@@ -246,6 +249,7 @@ export default function Home() {
                     src="/images/32_petillan-h.jpg"
                     alt="Vin Pétillant Rosé Méthode Traditionnelle - Domaine de Garanches"
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-contain transition-transform duration-700 group-hover:scale-110 p-4"
                   />
                 </div>

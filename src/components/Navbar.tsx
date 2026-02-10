@@ -87,6 +87,7 @@ export default function Navbar() {
                             fill
                             // Si useDarkText est vrai, on inverse les couleurs (White -> Black) pour qu'il soit visible sur fond blanc
                             className={`object-contain transition-all duration-300 ${useDarkText ? "invert" : ""}`}
+                            sizes="48px"
                         />
                     </div>
                     <span className={`font-serif tracking-widest uppercase font-bold transition-all duration-300 ${scrolled ? "text-sm" : "text-base"} ${useDarkText ? "text-stone-900" : "text-white"}`}>

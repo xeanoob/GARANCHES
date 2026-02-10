@@ -1,9 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import FadeIn from "@/components/FadeIn";
 import OpeningStatus from "@/components/OpeningStatus";
-import InteractiveMap from "@/components/InteractiveMap";
+
+const InteractiveMap = dynamic(() => import("@/components/InteractiveMap"), {
+    loading: () => <div className="w-full h-[500px] bg-stone-100 rounded-lg animate-pulse" />,
+    ssr: false
+});
 
 export default function VisiteContent() {
     return (

@@ -4,20 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "@/components/AddToCartButton";
 import FadeIn from "@/components/FadeIn";
-import { useLanguage } from "@/context/LanguageContext";
 
 export default function WinesContent({ wines }: { wines: any[] }) {
-    const { t } = useLanguage();
-
-    if (!t) return null;
 
     return (
         <main className="min-h-screen bg-paper pt-32 pb-20">
 
             <FadeIn direction="down" className="text-center px-6 mb-20">
-                <span className="text-gold-500 font-serif italic text-xl">{t.wines.subtitle}</span>
-                <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mt-4 mb-6">{t.wines.title}</h1>
-                <p className="max-w-2xl mx-auto text-gray-600 font-light leading-relaxed" dangerouslySetInnerHTML={{ __html: t.wines.intro }}>
+                <span className="text-gold-500 font-serif italic text-xl">La Cave</span>
+                <h1 className="text-4xl md:text-5xl font-serif text-wine-900 mt-4 mb-6">Nos Cuvées</h1>
+                <p className="max-w-2xl mx-auto text-gray-600 font-light leading-relaxed">
+                    Tous nos vins sont produits, vinifiés et mis en bouteille à la propriété.<br />
+                    Expédition possible dans toute la France (cartons de 6 ou 12 bouteilles).
                 </p>
             </FadeIn>
 
@@ -64,7 +62,7 @@ export default function WinesContent({ wines }: { wines: any[] }) {
                                         {wine.alcohol && <span className="border-l border-gray-300 pl-4">{wine.alcohol}</span>}
                                         {wine.price && wine.volume && (
                                             <span className="border-l border-gray-300 pl-4 text-gray-400 italic">
-                                                {t.wines.soit} {((wine.price / 100) / (parseFloat(wine.volume) === 1.5 ? 1.5 : 0.75)).toFixed(2).replace('.', ',')} {t.wines.price_unit || "€/L"}
+                                                Soit {((wine.price / 100) / (parseFloat(wine.volume) === 1.5 ? 1.5 : 0.75)).toFixed(2).replace('.', ',')} €/L
                                             </span>
                                         )}
                                         {wine.allergens && (
@@ -72,7 +70,7 @@ export default function WinesContent({ wines }: { wines: any[] }) {
                                                 {wine.allergens}
                                             </span>
                                         )}
-                                        <span className="border-l border-gray-300 pl-3" title={t.wines.pregnant}>
+                                        <span className="border-l border-gray-300 pl-3" title="Déconseillé aux femmes enceintes">
                                             <svg viewBox="0 0 64 64" className="w-5 h-5 opacity-60 fill-current text-gray-400">
                                                 <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" strokeWidth="3" />
                                                 <line x1="12" y1="52" x2="52" y2="12" stroke="currentColor" strokeWidth="3" />
@@ -101,12 +99,12 @@ export default function WinesContent({ wines }: { wines: any[] }) {
 
             <FadeIn direction="up">
                 <div className="mt-32 py-16 bg-wine-900 text-white text-center px-4">
-                    <h3 className="text-3xl font-serif mb-4">{t.wines.question_title}</h3>
+                    <h3 className="text-3xl font-serif mb-4">Une question sur un millésime ?</h3>
                     <p className="font-light opacity-80 mb-8 max-w-xl mx-auto">
-                        {t.wines.question_text}
+                        N'hésitez pas à nous contacter pour connaître les tarifs d'expédition ou pour passer commande directement.
                     </p>
                     <Link href="/contact" className="border-b border-gold-500 text-gold-500 pb-1 hover:text-white hover:border-white transition-colors uppercase text-xs tracking-widest font-bold">
-                        {t.wines.contact_btn}
+                        Contactez-nous
                     </Link>
                 </div>
             </FadeIn>
@@ -114,3 +112,4 @@ export default function WinesContent({ wines }: { wines: any[] }) {
         </main >
     );
 }
+
