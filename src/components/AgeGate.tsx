@@ -9,28 +9,27 @@ interface AgeGateProps {
 }
 
 export default function AgeGate({ initialShow }: AgeGateProps) {
-    // On se base sur ce que le serveur nous dit (Cookie)
-    // Plus besoin de "true" par défaut car 'initialShow' est déjà calculé côté serveur
+
     const [isVisible, setIsVisible] = useState(initialShow);
 
     useEffect(() => {
-        // En cas de navigation client ou si le cookie n'était pas là, on vérifie quand même le localStorage en backup
+
         const hasConfirmed = localStorage.getItem("age-confirmed");
 
-        // Ici on gère juste le bloquage du scroll.
+
         if (isVisible) {
             document.body.classList.add("overflow-hidden");
         } else {
             document.body.classList.remove("overflow-hidden");
         }
 
-        // Cleanup for bfcache compatibility
+
         const handlePageHide = () => {
             document.body.classList.remove("overflow-hidden");
         };
         window.addEventListener("pagehide", handlePageHide);
 
-        // Nettoyage au démontage du composant
+
         return () => {
             document.body.classList.remove("overflow-hidden");
             window.removeEventListener("pagehide", handlePageHide);
@@ -38,13 +37,13 @@ export default function AgeGate({ initialShow }: AgeGateProps) {
     }, [isVisible]);
 
     const handleConfirm = () => {
-        // 1. Cookie (pour le serveur au prochain chargement)
+
         document.cookie = "age-confirmed=true; path=/; max-age=31536000; SameSite=Lax";
 
-        // 2. LocalStorage (backup et synchro legacy)
+
         localStorage.setItem("age-confirmed", "true");
 
-        // 3. Event (pour l'animation de la Home)
+
         window.dispatchEvent(new Event("age-gate-confirmed"));
 
         setIsVisible(false);
@@ -54,10 +53,10 @@ export default function AgeGate({ initialShow }: AgeGateProps) {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    initial={{ opacity: 1 }} // On commence direct à 100% visible
+                    initial={{ opacity: 1 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.8 } }}
-                    // Z-INDEX 2000 = Tout en haut
+
                     className="fixed inset-0 z-[2000] flex items-center justify-center bg-[#1c1917] px-4"
                     role="dialog"
                     aria-modal="true"

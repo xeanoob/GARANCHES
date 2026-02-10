@@ -6,18 +6,18 @@ export async function POST(req: Request) {
 
     const localProduct = PRODUCTS.find(p => p.name === wineName || p.id === wineName);
 
-    // MODE SIMULATION
+
     if (!process.env.SUMUP_ACCESS_TOKEN || process.env.SUMUP_ACCESS_TOKEN === 'mock') {
         await new Promise(resolve => setTimeout(resolve, 1000));
         return NextResponse.json({ id: `mock-${Date.now()}` });
     }
 
     if (localProduct) {
-        // Validation sécurisée en CENTIMES (entiers)
+
         const clientAmountInCents = Math.round(amount * 100);
         const officialAmountInCents = localProduct.price;
 
-        // Si écart > 1 centime (tolérance d'arrondi), on force le prix officiel
+
         if (Math.abs(clientAmountInCents - officialAmountInCents) > 1) {
             console.warn(`[Checkout Security] Price mismatch for ${wineName}. Overriding client price.`);
             amount = officialAmountInCents / 100;
