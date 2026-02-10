@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     default: "Domaine de Garanches | Vins de Brouilly & Bourgogne Blanc - Odenas",
     template: "%s | Domaine de Garanches"
   },
-  description: "Domaine viticole historique à Odenas depuis 1788. Vins de Brouilly, Côte de Brouilly et Bourgogne Blanc par Romain Martinache & Aurélie Crozet. Dégustation et vente directe.",
-  keywords: ["Brouilly", "Côte de Brouilly", "Bourgogne Blanc", "Odenas", "Domaine de Garanches", "Romain Martinache", "Aurélie Crozet", "Gamay", "Chardonnay", "Vente vin Beaujolais", "Dégustation Odenas"],
+  description: "Domaine viticole historique à Odenas depuis 1788. Vins de Brouilly et Bourgogne Blanc par Romain Martinache & Aurélie Crozet. Dégustation et vente directe.",
+  keywords: ["Brouilly", "Bourgogne Blanc", "Odenas", "Domaine de Garanches", "Romain Martinache", "Aurélie Crozet", "Gamay", "Chardonnay", "Vente vin Beaujolais", "Dégustation Odenas"],
   authors: [{ name: "Domaine de Garanches" }],
   creator: "Domaine de Garanches",
   publisher: "Domaine de Garanches",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Domaine de Garanches - L'Excellence du Brouilly",
+    title: "Domaine de Garanches - Vins du Beaujolais",
     description: "Une histoire de famille depuis 1788. Commandez nos vins en ligne ou venez nous rendre visite au pied du Mont Brouilly.",
     url: "https://domainedegaranches.com",
     siteName: "Domaine de Garanches",
@@ -122,7 +122,7 @@ const jsonLd = {
         "name": "Quels types de vins produisez-vous ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nous produisons principalement des crus du Beaujolais (Brouilly, Côte de Brouilly) ainsi que du Bourgogne Blanc (Chardonnay) et du vin pétillant méthode traditionnelle."
+          "text": "Nous produisons principalement des crus du Beaujolais (Brouilly) ainsi que du Bourgogne Blanc (Chardonnay) et du vin pétillant méthode traditionnelle."
         }
       },
       {

@@ -5,7 +5,7 @@ export async function getSumUpProducts() {
 
         // Si on est en dev sans clé API, on peut renvoyer les produits mockés si vous le souhaitez
         // ou simplement laisser l'erreur se produire et le fallback des produits statiques prendra le relais dans la page.
-        if (!process.env.SUMUP_ACCESS_TOKEN || process.env.SUMUP_ACCESS_TOKEN === 'mock') {
+        if (!process.env.SUMUP_ACCESS_TOKEN || process.env.SUMUP_ACCESS_TOKEN === 'mock' || process.env.SUMUP_ACCESS_TOKEN === 'ton_token_ici') {
             console.warn("SumUp Token missing or mock mode. Returning null to trigger fallback.");
             return null;
         }

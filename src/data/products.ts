@@ -12,6 +12,18 @@ export const PRODUCTS = [
         allergens: "Contient des sulfites"
     },
     {
+        id: "cote-de-brouilly",
+        name: "Côte de Brouilly",
+        subtitle: "Cru du Beaujolais — Rouge",
+        price: 1350, // Prix estimé, à confirmer
+        description: "Un vin racé et élégant, issu des pentes du Mont Brouilly. Il offre une structure plus minérale et des arômes complexes de fruits noirs et d'épices.",
+        image: "/images/36_brouilly-h.jpg", // Utilise la même image en placeholder pour l'instant
+        tags: ["Gamay", "Gibier", "Garde"],
+        alcohol: "13.5%",
+        volume: "75cl",
+        allergens: "Contient des sulfites"
+    },
+    {
         id: "bourgogne-blanc",
         name: "Bourgogne Blanc",
         subtitle: "Chardonnay",

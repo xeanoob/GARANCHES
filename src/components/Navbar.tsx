@@ -73,7 +73,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed w-full z-[100] transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"} ${scrolled ? "bg-stone-900/95 backdrop-blur-md py-3 shadow-lg" : "bg-transparent py-6"} ${isOpen ? "!h-screen !bg-stone-900" : ""
+            className={`fixed w-full z-[100] transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"} ${scrolled ? "bg-stone-900/95 backdrop-blur-md py-3 shadow-lg" : "bg-gradient-to-b from-black/50 to-transparent py-6"} ${isOpen ? "!h-screen !bg-stone-900" : ""
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">

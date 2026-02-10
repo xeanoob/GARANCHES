@@ -18,14 +18,11 @@ export default function Home() {
 
     const isPWA = window.matchMedia('(display-mode: standalone)').matches;
 
-    const startAnimation = (delay = 2000) => {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-        document.body.style.overflow = "unset";
-        sessionStorage.setItem("intro-played", "true");
-        window.dispatchEvent(new Event("intro-complete"));
-      }, delay);
-      return () => clearTimeout(timer);
+    const startAnimation = () => {
+      setIsLoading(false);
+      document.body.style.overflow = "unset";
+      sessionStorage.setItem("intro-played", "true");
+      window.dispatchEvent(new Event("intro-complete"));
     };
 
     const hasPlayedIntro = sessionStorage.getItem("intro-played");
@@ -42,7 +39,7 @@ export default function Home() {
       startAnimation();
     } else {
       const handleAgeConfirmed = () => {
-        startAnimation(500);
+        startAnimation();
       };
 
       window.addEventListener("age-gate-confirmed", handleAgeConfirmed);

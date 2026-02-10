@@ -11,7 +11,7 @@ const faqs = [
     },
     {
         question: "Quels types de vins produisez-vous ?",
-        answer: "Nous produisons principalement des vins rouges en appellation Brouilly et Côte de Brouilly (Gamay), ainsi que du Bourgogne Blanc (Chardonnay) et une méthode traditionnelle brut."
+        answer: "Nous produisons principalement des vins rouges en appellation Brouilly (Gamay), ainsi que du Bourgogne Blanc (Chardonnay) et une méthode traditionnelle brut."
     },
     {
         question: "Proposez-vous des visites et dégustations ?",
