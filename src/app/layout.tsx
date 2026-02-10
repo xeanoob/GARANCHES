@@ -180,7 +180,7 @@ export default async function RootLayout({
 
 
         <Script
-          src="https://gateway.sumup.com/gateway/ecom/card/v1.0/sdk.js"
+          src="https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js"
           strategy="lazyOnload"
         />
         <Script
