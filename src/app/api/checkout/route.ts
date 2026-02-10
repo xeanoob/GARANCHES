@@ -36,7 +36,6 @@ export async function POST(req: Request) {
             checkout_reference: `GARANCHES-${Date.now()}`,
             amount: amount,
             currency: currency,
-            pay_to_email: 'contact@domainedegaranches.com',
             description: `Achat : ${wineName}`,
         }),
     });
