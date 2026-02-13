@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { getSumUpProducts } from "@/lib/sumup";
 import { PRODUCTS } from "@/data/products";
+import { getPageContent } from "@/sanity/lib/queries";
 import HomePageClient from "@/components/HomePageClient";
 
 export const metadata: Metadata = {
@@ -9,9 +10,11 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   // Récupération des produits (SumUp ou Fallback)
-  // Cela garantit que si un token SumUp est présent, ce sont bien ces produits qui sont affichés.
   const sumupProducts = await getSumUpProducts();
   const products = sumupProducts && sumupProducts.length > 0 ? sumupProducts : PRODUCTS;
 
-  return <HomePageClient products={products} />;
+  // Récupération du contenu de la page d'accueil depuis Sanity
+  const content = await getPageContent('home');
+
+  return <HomePageClient products={products} content={content} />;
 }

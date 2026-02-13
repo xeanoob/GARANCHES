@@ -2,7 +2,7 @@
 
 import FadeIn from "@/components/FadeIn";
 
-export default function HistoryContent() {
+export default function HistoryContent({ content }: { content?: any }) {
 
     return (
         <main className="min-h-screen bg-paper pt-32 pb-20">
@@ -26,9 +26,9 @@ export default function HistoryContent() {
                     </FadeIn>
 
                     <FadeIn direction="left" delay={0.2} className="md:pl-10">
-                        <h2 className="text-3xl font-serif text-wine-900 mb-6">Les Origines</h2>
+                        <h2 className="text-3xl font-serif text-wine-900 mb-6">{content?.origins?.title || "Les Origines"}</h2>
                         <p className="first-letter:text-5xl first-letter:font-serif first-letter:text-wine-900 first-letter:float-left first-letter:mr-3 first-letter:font-bold leading-relaxed text-justify mb-6">
-                            Fondé en 1788, à l'aube de la Révolution Française, le Domaine de Garanches puise ses racines dans la terre granitique d'Odenas. Témoin privilégié de l'histoire viticole du Beaujolais, notre domaine a traversé les siècles en conservant intacte son âme vigneronne. C'est ici, au pied du Mont Brouilly, que se perpétue depuis plus de deux cents ans un savoir-faire immuable, respectueux des cycles de la nature et de l'identité de nos terroirs.
+                            {content?.origins?.content || "Fondé en 1788, à l'aube de la Révolution Française, le Domaine de Garanches puise ses racines dans la terre granitique d'Odenas. Témoin privilégié de l'histoire viticole du Beaujolais, notre domaine a traversé les siècles en conservant intacte son âme vigneronne. C'est ici, au pied du Mont Brouilly, que se perpétue depuis plus de deux cents ans un savoir-faire immuable, respectueux des cycles de la nature et de l'identité de nos terroirs."}
                         </p>
                         <h2 className="text-2xl font-serif text-wine-900 mb-4 mt-8">Transmission & Modernité</h2>
                         <p className="text-gray-600 font-light leading-relaxed mb-6 text-justify">
@@ -49,9 +49,9 @@ export default function HistoryContent() {
                         alt="Illustration gravure du Château de Garanches"
                         className="h-32 w-auto mx-auto mb-8 opacity-80"
                     />
-                    <h2 className="text-3xl font-serif text-wine-900 mb-8">Le Domaine Aujourd'hui</h2>
+                    <h2 className="text-3xl font-serif text-wine-900 mb-8">{content?.philosophy?.title || "Le Domaine Aujourd'hui"}</h2>
                     <p className="text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-                        Aujourd'hui, Michel et Isabelle Stagnara perpétuent l'héritage familial avec la même ferveur. Alliant savoir-faire ancestral et techniques modernes, ils œuvrent chaque jour pour produire des vins d'exception, authentiques et généreux.
+                        {content?.philosophy?.content || "Aujourd'hui, Michel et Isabelle Stagnara perpétuent l'héritage familial avec la même ferveur. Alliant savoir-faire ancestral et techniques modernes, ils œuvrent chaque jour pour produire des vins d'exception, authentiques et généreux."}
                     </p>
 
                     <div className="grid grid-cols-3 gap-4 mt-12">

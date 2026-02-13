@@ -10,8 +10,16 @@ export const metadata: Metadata = {
 const FALLBACK_WINES = PRODUCTS;
 
 import { getSumUpProducts } from "@/lib/sumup";
+import { getWines as getSanityWines } from "@/sanity/lib/queries";
 
 async function getWines() {
+    const sanityWines = await getSanityWines();
+
+    // Si on a des vins dans Sanity, ils sont prioritaires
+    if (sanityWines && sanityWines.length > 0) {
+        return sanityWines;
+    }
+
     const wines = await getSumUpProducts();
     if (wines && wines.length > 0) {
         return wines;

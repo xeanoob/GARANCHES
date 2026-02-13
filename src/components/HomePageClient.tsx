@@ -8,7 +8,7 @@ import FadeIn from "@/components/FadeIn";
 import ParallaxImage from "@/components/ParallaxImage";
 import AddToCartButton from "@/components/AddToCartButton";
 
-export default function HomePageClient({ products }: { products: any[] }) {
+export default function HomePageClient({ products, content }: { products: any[], content?: any }) {
     const [isLoading, setIsLoading] = useState(true);
     const [mounted, setMounted] = useState(false);
 
@@ -136,8 +136,7 @@ export default function HomePageClient({ products }: { products: any[] }) {
                         <div className="w-16 h-0.5 md:w-24 md:h-1 bg-amber-500 mb-6"></div>
 
                         <p className="text-sm md:text-lg font-light max-w-xl mb-6 text-gray-100 leading-relaxed px-2 text-white">
-                            Ancré à Odenas, au pied majestueux du Mont Brouilly, le Domaine de Garanches perpétue la tradition du Gamay.
-                            Plongez dans l'univers de nos vins d'exception, où chaque cuvée raconte l'histoire d'une passion familiale.
+                            {content?.hero?.content || "Ancré à Odenas, au pied majestueux du Mont Brouilly, le Domaine de Garanches perpétue la tradition du Gamay. Plongez dans l'univers de nos vins d'exception, où chaque cuvée raconte l'histoire d'une passion familiale."}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center items-center w-full">
@@ -165,12 +164,18 @@ export default function HomePageClient({ products }: { products: any[] }) {
                             <span className="text-amber-700 font-serif italic text-xl md:text-2xl mb-2 block">Notre Philosophie</span>
                             <h2 className="text-4xl md:text-5xl font-serif text-red-900 mb-6 md:mb-8 leading-tight">Un Terroir <br />d'Exception</h2>
                             <div className="text-gray-600 leading-loose text-base md:text-lg font-light mb-8 text-justify space-y-4">
-                                <p>
-                                    Ancré sur les terres d'Odenas depuis 1788, le Domaine de Garanches incarne la mémoire vivante du Beaujolais. Cette longévité exceptionnelle témoigne d'une passion inaltérable, transmise de génération en génération au sein de notre famille. Plus qu'un simple héritage, c'est une responsabilité : celle de préserver l'âme d'un domaine qui a traversé les siècles. Aujourd'hui, nous perpétuons cette tradition vigneronne avec humilité et ferveur, honorant le travail de ceux qui ont façonné ces paysages avant nous, tout en écrivant le nouveau chapitre de cette saga familiale séculaire.
-                                </p>
-                                <p>
-                                    Notre vignoble tire sa singularité d'un terroir granitique rare, baigné de soleil grâce à une exposition sud-est idéale au pied du Mont Brouilly. C'est dans ce sol pauvre et exigeant que le Gamay Noir et le Chardonnay puisent leur caractère unique, révélant une minéralité racée et une complexité aromatique profonde. Respectueux de cet équilibre fragile, nous accompagnons la nature sans la brusquer, favorisant la biodiversité et la vie des sols pour que chaque grappe puisse exprimer la quintessence pure de notre environnement préservé.
-                                </p>
+                                {content?.philosophy?.content ? (
+                                    <p>{content.philosophy.content}</p>
+                                ) : (
+                                    <>
+                                        <p>
+                                            Ancré sur les terres d'Odenas depuis 1788, le Domaine de Garanches incarne la mémoire vivante du Beaujolais. Cette longévité exceptionnelle témoigne d'une passion inaltérable, transmise de génération en génération au sein de notre famille. Plus qu'un simple héritage, c'est une responsabilité : celle de préserver l'âme d'un domaine qui a traversé les siècles. Aujourd'hui, nous perpétuons cette tradition vigneronne avec humilité et ferveur, honorant le travail de ceux qui ont façonné ces paysages avant nous, tout en écrivant le nouveau chapitre de cette saga familiale séculaire.
+                                        </p>
+                                        <p>
+                                            Notre vignoble tire sa singularité d'un terroir granitique rare, baigné de soleil grâce à une exposition sud-est idéale au pied du Mont Brouilly. C'est dans ce sol pauvre et exigeant que le Gamay Noir et le Chardonnay puisent leur caractère unique, révélant une minéralité racée et une complexité aromatique profonde. Respectueux de cet équilibre fragile, nous accompagnons la nature sans la brusquer, favorisant la biodiversité et la vie des sols pour que chaque grappe puisse exprimer la quintessence pure de notre environnement préservé.
+                                        </p>
+                                    </>
+                                )}
                             </div>
                             <Link href="/notre-histoire" className="group inline-flex items-center text-red-900 uppercase text-xs font-bold tracking-widest hover:text-amber-600 transition-colors">
                                 <span className="border-b border-red-900 pb-1 group-hover:border-amber-600">Lire notre histoire</span>
