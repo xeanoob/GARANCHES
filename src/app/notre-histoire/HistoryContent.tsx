@@ -94,7 +94,7 @@ export default function HistoryContent({ content }: { content?: any }) {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/3_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-2xl font-serif text-wine-900">Membre de l'équipe</h3>
+                        <h3 className="text-2xl font-serif text-wine-900">Aurélie Crozet</h3>
                     </FadeIn>
 
                     <FadeIn delay={0.2} className="text-center group">
@@ -115,7 +115,7 @@ export default function HistoryContent({ content }: { content?: any }) {
                         <div className="h-96 w-full relative mb-6 overflow-hidden rounded-lg grayscale group-hover:grayscale-0 transition-all duration-700">
                             <img src="/images/18_image.jpg" alt="Membre de l'équipe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="text-2xl font-serif text-wine-900">Membre de l'équipe</h3>
+                        <h3 className="text-2xl font-serif text-wine-900">Romain Martinache</h3>
                     </FadeIn>
 
                 </div>
