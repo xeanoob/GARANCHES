@@ -165,7 +165,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <div className="bg-noise opacity-20"></div>
+
 
 
         <Providers>
